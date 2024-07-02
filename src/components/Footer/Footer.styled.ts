@@ -21,7 +21,7 @@ export const FooterItem = styled.div`
   align-items: start;
   padding: 16px;
   border-right: 1px solid ${getColor("line").primary};
-  &:last-child { 
+  &#last { 
     gap: 16px;
     justify-self: end;
     border-right: none;

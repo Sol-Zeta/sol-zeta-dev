@@ -1,6 +1,6 @@
 // 'use client'
 import type { Metadata } from "next";
-import { LayoutWrapper } from "./Layout.styled";
+import { LayoutWrapper, PageWrapper } from "./Layout.styled";
 import { ThemeProvider } from "styled-components";
 import theme from "@/styles/theme";
 import GlobalStyles from "@/styles/GlobalStyles";
@@ -19,10 +19,10 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <LayoutWrapper>
-        <GlobalStyles />
         <NavBar />
-        {children}
+        <PageWrapper>{children}</PageWrapper>
         <Footer />
       </LayoutWrapper>
     </ThemeProvider>
