@@ -5,19 +5,19 @@ interface ValueProps {
   isNumber?: boolean;
 }
 interface CodeLineProps {
-  margin?: string;
-  padding?: string;
+  codeMargin?: string;
+  codePadding?: string;
 }
 
 export const CodeWrapper = styled.div<CodeLineProps>`
   color: ${getColor("code").comments};
   position: relative;
-  margin: ${({margin}) => margin && margin};
-  padding: ${({padding}) => padding && padding};
+  margin: ${({codeMargin}) => codeMargin && codeMargin};
+  padding: ${({codePadding}) => codePadding && codePadding};
 `;
 export const CodeLine = styled.div<CodeLineProps>`
-  margin: ${({margin}) => margin && margin};
-  padding: ${({padding}) => padding && padding};
+  margin: ${({codeMargin}) => codeMargin && codeMargin};
+  padding: ${({codePadding}) => codePadding && codePadding};
 `;
 export const Key = styled.span`
   color: ${getColor("code").key};

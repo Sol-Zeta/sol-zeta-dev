@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
   }
 
+  p, span {
+    line-height: 1.5rem;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

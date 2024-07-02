@@ -15,15 +15,15 @@ export interface TreeMenuItem {
 
 export interface TreeMenuProps {
   items: TreeMenuItem[];
+  onClickItem: (item: string) => void;
 }
 
-const TreeMenu: FC<TreeMenuProps> = ({ items }) => {
+const TreeMenu: FC<TreeMenuProps> = ({ items, onClickItem }) => {
   const [openSections, setOpenSections] = useState<number[]>([0]);
   const [activeItem, setActiveItem] = useState<{ [key: number]: number }>({
     0: 0,
   });
   const handleClick = (section: number) => {
-    console.log("click", section, openSections);
     if (openSections.some((el) => el === section)) {
       const removedSection = openSections.filter((el) => el !== section);
       setOpenSections(removedSection);
@@ -32,9 +32,14 @@ const TreeMenu: FC<TreeMenuProps> = ({ items }) => {
     setOpenSections([...openSections, section]);
   };
 
-  const handleItemClick = (fatherIndex: number, itemIndex: number) => {
-    console.log({ [fatherIndex]: itemIndex });
+  const handleItemClick = (
+    fatherIndex: number,
+    itemIndex: number,
+    itemName: string
+  ) => {
     setActiveItem({ [fatherIndex]: itemIndex });
+
+    onClickItem(itemName);
   };
 
   const isOpen = (section: number): boolean =>
@@ -56,7 +61,9 @@ const TreeMenu: FC<TreeMenuProps> = ({ items }) => {
                 <TreeItem
                   {...item}
                   index={itemIndex}
-                  onClick={(value: number) => handleItemClick(index, value)}
+                  onClick={(value: number) =>
+                    handleItemClick(index, value, item.title)
+                  }
                   isActive={itemIndex === activeItem[index]}
                 />
               ))}

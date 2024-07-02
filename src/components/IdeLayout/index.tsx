@@ -1,19 +1,74 @@
-import React from "react";
-import { LayoutWrapper } from "./IdeLayour.styled";
+import React, { useState } from "react";
+import {
+  ContentContainer,
+  FileTab,
+  LayoutWrapper,
+  LeftContainer,
+  RightContainer,
+  TabsContainer,
+} from "./IdeLayour.styled";
 import TreeMenu, { TreeMenuItem } from "../TreeMenu";
+import IdeFile from "./IdeFile";
+import Icon, { Icons } from "../Icon";
 
-interface LayourProps {
-  children: React.ReactNode;
-  menuItems?: TreeMenuItem[];
+export interface LeftContent {
+  id: string;
+  title: string;
+  component: React.ReactNode;
 }
 
-export const Layout: React.FC<LayourProps> = ({ menuItems, children }) => {
+export interface IdeLayoutProps {
+  children: React.ReactNode;
+  menuItems?: TreeMenuItem[];
+  leftContent: LeftContent[];
+}
+
+export const IdeLayout: React.FC<IdeLayoutProps> = ({
+  menuItems,
+  children,
+  leftContent,
+}) => {
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([leftContent[0].id]);
+  const [selectedTab, setSelectedTab] = useState<string>(leftContent[0].id);
+  const handleMenuClick = (fileName: string) => {
+    setSelectedTab(fileName);
+    if (selectedFiles.some((name) => name === fileName)) {
+      return;
+    }
+    setSelectedFiles([...selectedFiles, fileName]);
+  };
+  const handleCloseTab = (e: React.MouseEvent, tabId: string) => {
+    e.stopPropagation();
+    const newSelectedFiles = selectedFiles.filter((id) => id !== tabId);
+    setSelectedFiles(newSelectedFiles);
+  };
   return (
     <LayoutWrapper>
-      <TreeMenu items={menuItems || []} />
-      {children}
+      <TreeMenu items={menuItems || []} onClickItem={handleMenuClick} />
+      <ContentContainer>
+        <LeftContainer>
+          <TabsContainer>
+            {selectedFiles.map((tabId: string) => (
+              <FileTab
+                onClick={() => setSelectedTab(tabId)}
+                isActive={selectedTab === tabId}
+              >
+                {leftContent.find((item) => item.id === tabId)?.title}
+                <Icon
+                  icon={Icons.CLOSE}
+                  onClick={(e) => handleCloseTab(e, tabId)}
+                />
+              </FileTab>
+            ))}
+          </TabsContainer>
+          <IdeFile {...leftContent.find((item) => item.id === selectedTab)} />
+          {/* {leftContent} */}
+          {/* {children} */}
+        </LeftContainer>
+        <RightContainer>right</RightContainer>
+      </ContentContainer>
     </LayoutWrapper>
   );
 };
 
-export default Layout;
+export default IdeLayout;
