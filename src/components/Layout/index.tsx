@@ -22,7 +22,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <LayoutWrapper>
         <GlobalStyles />
         <NavBar />
-        layout
         {children}
         <Footer />
       </LayoutWrapper>
