@@ -66,6 +66,13 @@ const theme: DefaultTheme = {
   fonts: {
     primary: "'Fira', monospace",
   },
+  fontSize: {
+    xl: '2rem',
+    lg: '1.5rem',
+    md: '1rem',
+    sm: '0.75rem',
+    xs: '0.5rem',
+  },
   borderRadius: {
     lg: '',
     md: '8px',

@@ -3,8 +3,8 @@ import { buttonPadding, getColor } from "@/styles/utils";
 import { NavItemProps, NavItemRoles } from ".";
 
 export const NavBarWrapper = styled.div`
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
   width: 100%;
   border-bottom: 1px solid ${getColor("line").primary};
 `;

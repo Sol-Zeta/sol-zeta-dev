@@ -1,11 +1,13 @@
-import { getColor } from "@/styles/utils";
+import { getBreakpoint, getColor } from "@/styles/utils";
 import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  padding: 0 10%;
   position: relative;
   display: flex;
+  justify-content: center;
 `;
 
 export const ArticleWrapper = styled.article`

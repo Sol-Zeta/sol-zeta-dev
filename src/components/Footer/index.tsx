@@ -20,7 +20,7 @@ const Footer: FC = () => (
         </Link>
       </FooterItem>
     </div>
-    <FooterItem>
+    <FooterItem id='last'>
       <p>Developed with</p>
       <Icon icon={Icons.COFFEE} isButton={false} />
     </FooterItem>

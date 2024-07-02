@@ -27,5 +27,13 @@ declare module "styled-components" {
     fonts: {
       primary: string;
     };
+    fontSize: {
+      [key: string]: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
   }
 }

@@ -26,5 +26,7 @@ export const buttonPadding = css`
 
 export const getColor = (key: string): any => theme.colors[key];
 export const getTheme = (key: string, size: string = 'md'): any => theme[key][size];
+export const getFontSize = (size: string = 'md'): any => theme.fontSize[size];
+export const getBorder = (): any => `1px solid ${theme.colors.line.primary}`;
 export const getBreakpoint = (key: string): any => theme.breakpoints[key];
 
