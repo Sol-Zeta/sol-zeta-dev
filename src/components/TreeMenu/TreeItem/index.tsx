@@ -16,7 +16,6 @@ const TreeItem: FC<TreeItemProps> = ({ index, title, color, icon, onClick, isAct
     e.stopPropagation();
     onClick(index);
   };
-  console.log({title, isActive})
   return (
     <TreeItemWrapper data-testid="TreeItem" color={color} onClick={handleClick} isActive={isActive}>
       {icon ? <Icon icon={icon} /> : <Icon icon={Icons.DIRECTORY} />}

@@ -17,13 +17,14 @@ const homeSnippet: CodeLine[] = [
   },
   {
     comment: "Sol Zeta is my nickname, my real name is Soledad Pattoglio",
+    isBlock: true
   },
   {
     comment:
-      "I love to code, but I also play chess, travel and make some music with my guitar",
+      "I love to code, but I also play chess, \ntravel and make some music with my guitar",
   },
   {
-    margin: '32px 0',
+    codeMargin: '32px 0',
     variable: "YEARS_OF_EXPERIENCE",
     value: 4,
   },
@@ -40,7 +41,7 @@ const Home: React.FC<Props> = () => {
         <ArticleHeader>
           <p>👋 Hi there, I am</p>
           <h1>Sol Zeta</h1>
-          <h2>{"> Frontend developer"}</h2>
+          <h2>{"> Software developer"}</h2>
         </ArticleHeader>
         <Code codeLines={homeSnippet} />
       </ArticleWrapper>

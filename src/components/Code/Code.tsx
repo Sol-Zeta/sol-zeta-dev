@@ -1,4 +1,4 @@
-import React, { FC, useRef } from "react";
+import React, { FC } from "react";
 import {
   CodeWrapper,
   Key,
@@ -13,27 +13,27 @@ export interface CodeLine {
   comment?: string;
   variable?: string;
   value?: string | number;
-  margin?: string;
-  padding?: string;
+  codeMargin?: string;
+  codePadding?: string;
+  isBlock?: boolean;
 }
 
 export interface CodeProps {
   codeLines: CodeLine[];
-  margin?: string;
-  padding?: string;
+  codeMargin?: string;
+  codePadding?: string;
 }
 
-const Code: FC<CodeProps> = ({ codeLines, margin, padding }) => {
+const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
   return (
-    <CodeWrapper data-testid="Code" margin={margin} padding={padding}>
+    <CodeWrapper data-testid="Code" codeMargin={codeMargin} codePadding={codePadding}>
       {codeLines.map((line: CodeLine) =>
         line.comment ? (
-          <CodeLine margin={line.margin} padding={line.padding}>
-            {/* <p>{`// ${line.comment}`}</p> */}
-            <CommentLine>{line.comment}</CommentLine>
+          <CodeLine codeMargin={line.codeMargin} codePadding={line.codePadding}>
+            <CommentLine isBlock={line.isBlock} comment={line.comment} />
           </CodeLine>
         ) : line.variable ? (
-          <CodeLine margin={line.margin} padding={line.padding}>
+          <CodeLine codeMargin={line.codeMargin} codePadding={line.codePadding}>
             <Key>{`const${" "}`}</Key>
             <Variable>{`${line.variable} `}</Variable>
             <Operator>{`=${" "}`}</Operator>
