@@ -7,6 +7,7 @@ export const colors = {
   white: "#FFFFFF",
   orange: "#FEA55F",
   lightGreen: "#43D9AD",
+  greenCode: '#dcdd9a',
   salmon: "#E99287",
   plum: "#C98BDF",
   neutralDark: "#01080E",
@@ -46,9 +47,12 @@ const theme: DefaultTheme = {
       secondary: colors.blue,
     },
     code: {
+      comments: colors.gray,
       key: colors.blue,
-      variable: colors.green,
+      variable: colors.plum,
       value: colors.salmon,
+      number: colors.greenCode,
+      operator: colors.white
     },
     icon: colors.gray,
     line: {

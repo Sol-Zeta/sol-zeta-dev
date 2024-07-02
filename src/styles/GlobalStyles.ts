@@ -35,8 +35,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  h1, h2 {
+  h1, h2, p {
     margin: 0;
+    font-weight: normal;
   }
 
   h1 {
@@ -45,7 +46,6 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-size: 2rem;
-    color: #66ffcc; 
   }
 
   a {

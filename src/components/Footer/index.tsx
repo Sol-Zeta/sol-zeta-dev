@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { FooterItem, FooterWrapper } from "./Footer.styled";
 import Icon, { Icons } from "@/components/Icon";
+import Link from "next/link";
 
 const Footer: FC = () => (
   <FooterWrapper data-testid="Footer">
@@ -9,15 +10,19 @@ const Footer: FC = () => (
         <p>find me in:</p>
       </FooterItem>
       <FooterItem>
-        <Icon icon={Icons.LINKEDIN} />
+        <Link href="https://www.linkedin.com/in/mspattoglio/" target="_blank">
+          <Icon icon={Icons.LINKEDIN} />
+        </Link>
       </FooterItem>
       <FooterItem>
-        <Icon icon={Icons.GITHUB} />
+        <Link href="https://github.com/Sol-Zeta" target="_blank">
+          <Icon icon={Icons.GITHUB} />
+        </Link>
       </FooterItem>
     </div>
     <FooterItem>
       <p>Developed with</p>
-      <Icon icon={Icons.COFFEE} isButton={false}/>
+      <Icon icon={Icons.COFFEE} isButton={false} />
     </FooterItem>
   </FooterWrapper>
 );
