@@ -6,6 +6,7 @@ import theme from "@/styles/theme";
 import GlobalStyles from "@/styles/GlobalStyles";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { HeightProvider } from "@/context/HeightContext";
 
 export const metadata: Metadata = {
   title: "Sol Zeta Dev",
@@ -18,14 +19,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <LayoutWrapper>
-        <NavBar />
-        <PageWrapper>{children}</PageWrapper>
-        <Footer />
-      </LayoutWrapper>
-    </ThemeProvider>
+    <HeightProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <LayoutWrapper>
+          <NavBar />
+          <PageWrapper>{children}</PageWrapper>
+          <Footer />
+        </LayoutWrapper>
+      </ThemeProvider>
+    </HeightProvider>
   );
 };
 

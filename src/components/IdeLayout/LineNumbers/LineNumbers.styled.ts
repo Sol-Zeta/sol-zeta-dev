@@ -3,9 +3,9 @@ import { getColor } from "@/styles/utils";
 
 export const LineNumbersWrapper = styled.div`
   color: ${getColor("secondary").gray};
-  position: relative;
-  top: 24px;
-  left: -30px;
+  position: absolute;
+  top: 80px;
+  left: 30px;
 `;
 
 export const LineNumber = styled.p`
