@@ -13,8 +13,10 @@ export const TreeItemWrapper = styled.div<TreeItemProps>`
   cursor: pointer;
   color: ${({ isActive }) =>
     isActive ? getColor("secondary").white : getColor("secondary").gray};
-  svg {
-    fill: ${({ color }) => color};
-    filter: ${({ isActive }) => `saturate(${isActive ? 1 : "30%"})`};
+  .itemIcon {
+    svg {
+      fill: ${({ color }) => color};
+      filter: ${({ isActive }) => `saturate(${isActive ? 1 : "30%"})`};
+    }
   }
 `;

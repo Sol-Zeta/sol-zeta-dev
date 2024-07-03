@@ -12,13 +12,14 @@ export interface TreeItemProps {
 }
 
 const TreeItem: FC<TreeItemProps> = ({ index, title, color, icon, onClick, isActive }: any) => {
+  console.log({color})
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     onClick(index);
   };
   return (
     <TreeItemWrapper data-testid="TreeItem" color={color} onClick={handleClick} isActive={isActive}>
-      {icon ? <Icon icon={icon} /> : <Icon icon={Icons.DIRECTORY} />}
+      {icon ? <Icon icon={icon} /> : <Icon icon={Icons.DIRECTORY} className="itemIcon"/>}
       <p>{title}</p>
     </TreeItemWrapper>
   );

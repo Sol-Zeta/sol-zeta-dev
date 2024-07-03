@@ -47,7 +47,7 @@ const NavBar: FC<NavBarProps> = () => {
   return (
     <NavBarWrapper data-testid="NavBar">
       <NavList>
-        {NAV_SECTIONS.map(({ title, role, href }, index) => (
+        {NAV_SECTIONS.map(({ title, role, href }) => (
           <NavItem key={title} role={role} isActive={router.pathname === href}>
             {href ? <Link href={href}>{title}</Link> : <>{title}</>}
           </NavItem>

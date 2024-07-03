@@ -4,6 +4,8 @@ import { IconWrapper } from "./Icon.styled";
 export interface IconButtonProps {
   isButton?: boolean;
   href?: string;
+  width?: number;
+  height?: number;
 }
 
 export interface IconProps extends IconButtonProps {
@@ -32,20 +34,31 @@ const IconPaths = {
   [Icons.CHEVRON_UP]:
     "M5 3H20C21.1046 3 22 3.89543 22 5V8C22 9.10457 21.1046 10 20 10H18V13C18 15.2091 16.2091 17 14 17H8C5.79086 17 4 15.2091 4 13V4C4 3.44772 4.44772 3 5 3ZM18 5V8H20V5H18ZM2 19H20V21H2V19Z",
   [Icons.CHEVRON_DOWN]: "M12 16L6 10H18L12 16Z",
-  [Icons.CLOSE]: "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z",
+  [Icons.CLOSE]:
+    "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z",
   [Icons.DIRECTORY]:
     "M22 8V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V7H21C21.5523 7 22 7.44772 22 8ZM12.4142 5H2V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z",
 };
 
-const Icon: FC<IconProps> = ({ icon, href, isButton = true, className, onClick }) => (
+const Icon: FC<IconProps> = ({
+  icon,
+  width = 20,
+  height = 20,
+  href,
+  isButton = true,
+  className,
+  onClick,
+}) => (
   <IconWrapper
     data-testid="Icon"
     isButton={isButton}
     href={href || "#"}
     className={className}
     onClick={onClick}
+    width={width}
+    height={height}
   >
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox={`0 0 24 24`} xmlns="http://www.w3.org/2000/svg">
       <path d={IconPaths[icon]} />
     </svg>
   </IconWrapper>

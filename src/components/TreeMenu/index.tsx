@@ -8,6 +8,10 @@ import {
 import TreeItem, { TreeItemProps } from "./TreeItem";
 import Icon, { Icons } from "../Icon";
 
+export interface TreeActiveItem {
+  [key: number]: number | undefined;
+}
+
 export interface TreeMenuItem {
   title: string;
   items: TreeItemProps[];
@@ -16,13 +20,17 @@ export interface TreeMenuItem {
 export interface TreeMenuProps {
   items: TreeMenuItem[];
   onClickItem: (item: string) => void;
+  activeItem: TreeActiveItem;
+  getActiveItem: (item: TreeActiveItem) => void;
 }
 
-const TreeMenu: FC<TreeMenuProps> = ({ items, onClickItem }) => {
+const TreeMenu: FC<TreeMenuProps> = ({
+  items,
+  onClickItem,
+  activeItem,
+  getActiveItem,
+}) => {
   const [openSections, setOpenSections] = useState<number[]>([0]);
-  const [activeItem, setActiveItem] = useState<{ [key: number]: number }>({
-    0: 0,
-  });
   const handleClick = (section: number) => {
     if (openSections.some((el) => el === section)) {
       const removedSection = openSections.filter((el) => el !== section);
@@ -37,7 +45,7 @@ const TreeMenu: FC<TreeMenuProps> = ({ items, onClickItem }) => {
     itemIndex: number,
     itemName: string
   ) => {
-    setActiveItem({ [fatherIndex]: itemIndex });
+    getActiveItem({ [fatherIndex]: itemIndex });
 
     onClickItem(itemName);
   };
@@ -50,6 +58,7 @@ const TreeMenu: FC<TreeMenuProps> = ({ items, onClickItem }) => {
         <TreeMenuSection
           isOpen={isOpen(index)}
           onClick={() => handleClick(index)}
+          key={item.title}
         >
           <TreeMenuHeader>
             <Icon className="chevron" icon={Icons.CHEVRON_DOWN} />
@@ -59,6 +68,7 @@ const TreeMenu: FC<TreeMenuProps> = ({ items, onClickItem }) => {
             <TreeMenuBody>
               {item.items.map((item, itemIndex) => (
                 <TreeItem
+                  key={`tree-item-${item.title}`}
                   {...item}
                   index={itemIndex}
                   onClick={(value: number) =>

@@ -45,11 +45,11 @@ const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
     >
       {codeLines.map((line: CodeLine) =>
         line.comment ? (
-          <CodeLine codeMargin={line.codeMargin} codePadding={line.codePadding}>
+          <CodeLine key={line.comment} codeMargin={line.codeMargin} codePadding={line.codePadding}>
             <CommentLine isBlock={line.isBlock} comment={line.comment} />
           </CodeLine>
         ) : (
-          <CodeLine codeMargin={line.codeMargin} codePadding={line.codePadding}>
+          <CodeLine key={line.value} codeMargin={line.codeMargin} codePadding={line.codePadding}>
             <Key>{`const${" "}`}</Key>
             <Variable>{`${line.variable} `}</Variable>
             <Operator>{`=${" "}`}</Operator>
