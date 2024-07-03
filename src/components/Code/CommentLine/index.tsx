@@ -19,7 +19,7 @@ const CommentLine: FC<CommentLineProps> = ({
       <>
         <CommentLimit>/**</CommentLimit>
         {comment.split("\n").map((line) => (
-          <StyledComment className={isBlock && "isBlock"} isBlock={isBlock}>
+          <StyledComment key={line.substring(10)} className={isBlock && "isBlock"} isBlock={isBlock}>
             {line}
           </StyledComment>
         ))}

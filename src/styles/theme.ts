@@ -29,6 +29,7 @@ const theme: DefaultTheme = {
       dark: colors.neutralDark,
       medium: colors.neutralMedium,
       light: colors.neutralLight,
+      lighter: colors.neutralLighter,
     },
     secondary: {
       gray: colors.gray,
@@ -67,8 +68,9 @@ const theme: DefaultTheme = {
     primary: "'Fira', monospace",
   },
   fontSize: {
-    xl: '2rem',
-    lg: '1.5rem',
+    xxl: '2rem',
+    xl: '1.5rem',
+    lg: '1.25rem',
     md: '1rem',
     sm: '0.75rem',
     xs: '0.5rem',

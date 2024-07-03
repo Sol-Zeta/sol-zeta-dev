@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const IdeFileWrapper = styled.div`
   display: flex;
   width: 100%;
+  max-height: calc(100% - 40px);
+
 `;
 
 export const ContentWrapper = styled.article`
@@ -12,4 +14,5 @@ export const ContentWrapper = styled.article`
   width: 100%;
   display: flex;
   color: white;
+  overflow: scroll;
 `;

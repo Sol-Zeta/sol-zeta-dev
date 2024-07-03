@@ -19,7 +19,7 @@ const LineNumbers: FC<LineNumbersProps> = ({ height }) => {
   return (
     <LineNumbersWrapper data-testid="LineNumbers">
       {lines.map((line) => (
-        <LineNumber>{line + 1}</LineNumber>
+        <LineNumber key={`line-number-${line}`}>{line + 1}</LineNumber>
       ))}
     </LineNumbersWrapper>
   );
