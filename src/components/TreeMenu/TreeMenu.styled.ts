@@ -8,6 +8,7 @@ interface TreeMenuSection {
 export const TreeMenuWrapper = styled.div`
   ${borderTheme}
   border-top: none;
+  width: 300px;
   height: 100%;
 `;
 

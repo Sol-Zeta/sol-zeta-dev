@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ContentContainer,
   FileTab,
@@ -14,7 +14,8 @@ import LineNumbers from "./LineNumbers";
 import { useHeight } from "@/context/HeightContext";
 import NoFileSelected from "./NoFileSelected";
 
-export interface LeftContent {
+export interface mainContent {
+  showLineNumber?: boolean;
   id: string;
   title: string;
   component: React.ReactNode;
@@ -23,29 +24,36 @@ export interface LeftContent {
 export interface IdeLayoutProps {
   children?: React.ReactNode;
   menuItems?: TreeMenuItem[];
-  leftContent: LeftContent[];
+  mainContent: mainContent[];
+  secondaryContent?: any[];
 }
 
 export const IdeLayout: React.FC<IdeLayoutProps> = ({
   menuItems,
   children,
-  leftContent,
+  mainContent = [],
+  secondaryContent = []
 }) => {
   const { height } = useHeight();
   const [selectedFiles, setSelectedFiles] = useState<string[]>([
-    leftContent[0].id,
+    mainContent[0]?.id,
   ]);
-  const [selectedTab, setSelectedTab] = useState<string>(leftContent[0].id);
+  const [selectedTab, setSelectedTab] = useState<string>(mainContent[0]?.id);
   const [selectedMenuItem, setSelectedMenuItem] = useState<TreeActiveItem>({
     0: 0,
   });
+  const [showLineNumber, setShowLineNumber] = useState(
+    mainContent[0]?.showLineNumber !== false
+  );
   const handleMenuClick = (fileName: string) => {
     setSelectedTab(fileName);
     if (selectedFiles.some((name) => name === fileName)) {
       return;
     }
     setSelectedFiles([...selectedFiles, fileName]);
+    console.log({ selectedFiles, selectedTab, selectedMenuItem });
   };
+
   const handleCloseTab = (e: React.MouseEvent, tabId: string) => {
     e.stopPropagation();
     const newSelectedFiles = selectedFiles.filter((id) => id !== tabId);
@@ -60,12 +68,21 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
         }
       });
     });
+    // setShowLineNumber(newSelectedFiles.)
     setSelectedFiles(newSelectedFiles);
     setSelectedTab(newSelectedTab);
     setSelectedMenuItem(newSelectedMenuItem);
   };
+
+  useEffect(() => {
+    const showNumbers =
+      mainContent.find((item) => item.id === selectedTab)?.showLineNumber !==
+      false;
+    setShowLineNumber(showNumbers);
+  }, [selectedTab]);
+
   const handleMenuItem = (item: TreeActiveItem) => setSelectedMenuItem(item);
-  console.log({ selectedFiles, selectedTab });
+
   return (
     <LayoutWrapper>
       <TreeMenu
@@ -83,7 +100,7 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
                 isActive={selectedTab === tabId}
                 key={tabId}
               >
-                {leftContent.find((item) => item.id === tabId)?.title}
+                {mainContent.find((item) => item.id === tabId)?.title}
                 <Icon
                   icon={Icons.CLOSE}
                   onClick={(e) => handleCloseTab(e, tabId)}
@@ -91,13 +108,15 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
               </FileTab>
             ))}
           </TabsContainer>
-          {selectedFiles.length ? <LineNumbers height={height} /> : null}
+          {selectedFiles.length && showLineNumber ? (
+            <LineNumbers height={height} />
+          ) : null}
           {selectedFiles.length ? (
-            <IdeFile {...leftContent.find((item) => item.id === selectedTab)} />
+            <IdeFile {...mainContent.find((item) => item.id === selectedTab)} />
           ) : (
             <NoFileSelected />
           )}
-          {/* {leftContent} */}
+          {/* {mainContent} */}
           {/* {children} */}
         </LeftContainer>
         <RightContainer>right</RightContainer>

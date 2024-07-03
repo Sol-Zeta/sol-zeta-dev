@@ -19,11 +19,11 @@ export const ContentContainer = styled.div`
 `;
 export const LeftContainer = styled.div`
   position: relative;
-  width: 50%;
+  width: 60%;
   height: 100%;
 `;
 export const RightContainer = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
   background-color: blue;
 `;

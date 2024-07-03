@@ -6,7 +6,7 @@ const lineTreeColor = css`
 `;
 
 export const TreeContainer = styled.div`
-  padding: 48px 30px;
+  margin-bottom: 24px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
@@ -34,25 +34,31 @@ export const Section = styled.div<React.HTMLAttributes<HTMLDivElement>>`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h2<React.HTMLAttributes<HTMLHeadingElement>>`
   text-transform: capitalize;
   margin-bottom: 10px;
   padding-left: 5px;
   font-size: ${getFontSize("lg")};
   color: ${getColor("accent").green};
+  cursor: pointer;
   &::before {
-    content: "__ ";
+    content: "+ ";
+  }
+  &.open::before {
+    content: "_ ";
   }
 `;
 
 export const TitleAttached = styled.span`
   font-size: ${getFontSize("md")};
-  color: ${getColor('accent').green};
+  color: ${getColor("accent").green};
+  padding-left: 30px;
   &::before {
-    content: " ==> ";
+    content: "└- ";
     ${lineTreeColor};
     font-size: ${getFontSize("sm")};
-    vertical-align: middle; 
+    vertical-align: middle;
+    left: 10px;
   }
 `;
 

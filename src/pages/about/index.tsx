@@ -1,7 +1,7 @@
 import React from "react";
 import IdeLayout from "@/components/IdeLayout";
 import { TreeMenuItem } from "@/components/TreeMenu";
-import Code, { CodeLine } from "@/components/Code/Code";
+import Code, { CodeLine } from "@/components/Code";
 import { AboutWrapper } from "./about.styled";
 import { LEFT_CONTENT, TREE_MENU_DATA } from "./utils";
 import CodeTree from "@/components/Code/CodeTree";
@@ -25,7 +25,7 @@ const About: React.FC<AboutProps> = () => {
   return (
     <IdeLayout
       menuItems={TREE_MENU_DATA as unknown as TreeMenuItem[]}
-      leftContent={getLeftContent()}
+      mainContent={getLeftContent()}
     />
   );
 };
