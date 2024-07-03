@@ -1,14 +1,14 @@
-import { borderTheme, getColor } from "@/styles/utils";
+import { getColor } from "@/styles/utils";
 import styled from "styled-components";
 
 export const IdeFileWrapper = styled.div`
+  display: flex;
   width: 100%;
 `;
 
 export const ContentWrapper = styled.article`
   background-color: ${getColor("background").medium};
-  background-color: ${getColor("background").light};
-  padding: 16px 64px;
+  padding: 16px 80px;
   width: 100%;
   display: flex;
   color: white;

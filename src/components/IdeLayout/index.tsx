@@ -6,10 +6,12 @@ import {
   LeftContainer,
   RightContainer,
   TabsContainer,
-} from "./IdeLayour.styled";
+} from "./IdeLayout.styled";
 import TreeMenu, { TreeMenuItem } from "../TreeMenu";
 import IdeFile from "./IdeFile";
 import Icon, { Icons } from "../Icon";
+import LineNumbers from "./LineNumbers";
+import { useHeight } from "@/context/HeightContext";
 
 export interface LeftContent {
   id: string;
@@ -28,7 +30,10 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
   children,
   leftContent,
 }) => {
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([leftContent[0].id]);
+  const { height } = useHeight();
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([
+    leftContent[0].id,
+  ]);
   const [selectedTab, setSelectedTab] = useState<string>(leftContent[0].id);
   const handleMenuClick = (fileName: string) => {
     setSelectedTab(fileName);
@@ -61,6 +66,7 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
               </FileTab>
             ))}
           </TabsContainer>
+          <LineNumbers height={height} />
           <IdeFile {...leftContent.find((item) => item.id === selectedTab)} />
           {/* {leftContent} */}
           {/* {children} */}

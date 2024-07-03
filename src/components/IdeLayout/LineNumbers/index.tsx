@@ -1,18 +1,20 @@
 import React, { FC, useEffect, useState } from "react";
 import { LineNumber, LineNumbersWrapper } from "./LineNumbers.styled";
+import { useHeight } from "@/context/HeightContext";
 
 interface LineNumbersProps {
   height: number;
 }
 
 const LineNumbers: FC<LineNumbersProps> = ({ height }) => {
+  const { height: contextHeight } = useHeight();
   const [lines, setLines] = useState<number[]>([]);
-  console.log({ height})
+
   useEffect(() => {
-    const newLines = Array.from(Array(Math.floor(height / 16)).keys());
-    console.log({newLines, height})
+    const currentHeight = height || contextHeight;
+    const newLines = Array.from(Array(Math.floor(currentHeight / 25)).keys());
     setLines(newLines);
-  }, [height]);
+  }, [height, contextHeight]);
 
   return (
     <LineNumbersWrapper data-testid="LineNumbers">
