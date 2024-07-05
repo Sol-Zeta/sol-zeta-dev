@@ -9,6 +9,7 @@ interface Props {
 const TREE_MENU_DATA = [
   {
     title: "filter-by-tech",
+    isCheckboxList: true,
     items: [
       { title: "bio", color: getColor("accent").salmon },
       { title: "tech-skills", color: getColor("accent").green },
@@ -20,7 +21,7 @@ const TREE_MENU_DATA = [
 const Home: React.FC<Props> = () => {
   return (
     <div>
-      <IdeLayout menuItems={TREE_MENU_DATA as unknown as TreeMenuItem[]}>
+      <IdeLayout menuItems={TREE_MENU_DATA as unknown as TreeMenuItem[]} mainContent={[]}>
         <div>Content here projects</div>
       </IdeLayout>
     </div>

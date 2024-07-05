@@ -8,9 +8,11 @@ import {
   ListItem,
   Highlighted,
   TitleAttached,
+  TitleContainer,
 } from "./CodeTreeItem.styled";
 
 export const ATTACH_TO_TITLE_KEY = "ATTACH_TO_TITLE_KEY";
+export const AT = "AT";
 
 export interface CodeTreeItemProps {
   [key: string]: string | string[];
@@ -40,37 +42,38 @@ const renderNodes = (
   const nodes = [];
   const dataKeys = Object.keys(data);
   const isOpen = openNodes?.includes(data.id);
-  console.log({ data });
   if (!dataKeys.length) {
     return;
   }
   for (const key in data) {
     const value = data[key];
+    const isLastListAttribute = dataKeys[dataKeys.length - 1] === key;
     if (
       key === ATTACH_TO_TITLE_KEY ||
       key === data[ATTACH_TO_TITLE_KEY] ||
+      key === AT ||
       key === "id"
     ) {
       continue;
     }
     if (key === "title") {
       titleNode.push(
-        <>
+        <TitleContainer>
           <Title
-            className={`${isOpen && 'open'}`}
+            className={`${isOpen && "open"}`}
             onClick={() => handleTitleClick(data.id, openNodes, setOpenNodes)}
           >
-            {`${value} @ ${data.company}`}
+            {`${value} ${data.hasOwnProperty(AT) ? `@ ${data[AT]}` : ""}`}
           </Title>
           <TitleAttached>{data[data[ATTACH_TO_TITLE_KEY]]}</TitleAttached>
-        </>
+        </TitleContainer>
       );
       if (!isOpen) break;
       continue;
     }
     if (typeof value === "string") {
       nodes.push(
-        <Subtitle>
+        <Subtitle className={`${isLastListAttribute && "last"}`}>
           <Highlighted>{`${key}: `}</Highlighted>
           {value}
         </Subtitle>
@@ -78,10 +81,9 @@ const renderNodes = (
       continue;
     }
     if (typeof value === "object" && value.length) {
-      const isLastList = dataKeys[dataKeys.length - 1] === key;
       const listNode = (
         <>
-          <Subtitle className={`${isLastList && "last"}`}>
+          <Subtitle className={`${isLastListAttribute && "last"}`}>
             <Highlighted>{`${key}:`}</Highlighted>
           </Subtitle>
           <List>
@@ -90,7 +92,7 @@ const renderNodes = (
               return (
                 <ListItem
                   key={value.id}
-                  className={`${isLastList && "noLine"} ${
+                  className={`${isLastListAttribute && "noLine"} ${
                     isLastItem && "last"
                   }`}
                 >

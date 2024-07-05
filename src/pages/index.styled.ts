@@ -17,7 +17,7 @@ export const ArticleWrapper = styled.article`
   flex-direction: column;
   justify-content: center;
   &:first-of-type {
-    padding: 120px;
+    padding: 120px 64px;
   }
 `;
 export const ArticleHeader = styled.div`

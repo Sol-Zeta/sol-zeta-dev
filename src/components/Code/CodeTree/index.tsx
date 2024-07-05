@@ -14,7 +14,7 @@ const CodeTree: FC<CodeTreeProps> = ({ data }) => {
         codeLines={[
           {
             comment: "CLICK ON EACH ITEM FOR MORE DETAILS",
-            codeMargin: "32px 0",
+            codeMargin: "16px 0 32px 0",
           },
         ]}
       />

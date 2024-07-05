@@ -2,10 +2,7 @@ import React, {
   createContext,
   useContext,
   useState,
-  useRef,
-  useEffect,
   ReactNode,
-  RefObject,
 } from "react";
 
 interface HeightContext {

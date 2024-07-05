@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = () => {
     LEFT_CONTENT.map(({ snippet, ...data }) => ({
       ...data,
       component:
-        data.id !== "job-experience" ? (
+        data.id === "bio" ? (
           <Code key={data.id} codeLines={snippet as CodeLine[]} />
         ) : (
           <CodeTree key={data.id} data={snippet as CodeTreeItemProps[]} />

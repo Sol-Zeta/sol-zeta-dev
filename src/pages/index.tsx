@@ -5,7 +5,7 @@ import {
   Background,
   SectionWrapper,
 } from "./index.styled";
-import Code, { CodeLine } from "@/components/Code/Code";
+import Code, { CodeLine } from "@/components/Code";
 
 interface Props {
   exampleProp?: string;

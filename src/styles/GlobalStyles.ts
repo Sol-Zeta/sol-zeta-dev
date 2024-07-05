@@ -15,6 +15,18 @@ const GlobalStyles = createGlobalStyle`
     color: white; /* Color of the text */
   } 
 
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${colors.gray};
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -33,6 +45,7 @@ const GlobalStyles = createGlobalStyle`
       width: 100%;
       height: 100vh;
     }
+
   }
 
   h1, h2, p {

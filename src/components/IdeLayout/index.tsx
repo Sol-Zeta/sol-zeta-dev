@@ -68,7 +68,6 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
         }
       });
     });
-    // setShowLineNumber(newSelectedFiles.)
     setSelectedFiles(newSelectedFiles);
     setSelectedTab(newSelectedTab);
     setSelectedMenuItem(newSelectedMenuItem);

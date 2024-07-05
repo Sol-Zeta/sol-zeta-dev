@@ -10,26 +10,27 @@ export const LayoutWrapper = styled.section`
   align-items: stretch;
   width: 100%;
   height: 100%;
-`;
+  `;
 
 export const ContentContainer = styled.div`
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
 `;
 export const LeftContainer = styled.div`
   position: relative;
-  width: 60%;
+  width: 50%;
   height: 100%;
 `;
 export const RightContainer = styled.div`
   width: 40%;
   height: 100%;
-  background-color: blue;
 `;
 export const TabsContainer = styled.div`
   display: flex;
   width: 100%;
+  border-bottom:1px solid ${getColor('line').primary};
 `;
 
 export const FileTab = styled.div<TabProps>`

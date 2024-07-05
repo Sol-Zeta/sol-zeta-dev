@@ -1,6 +1,6 @@
 // 'use client'
 import type { Metadata } from "next";
-import { LayoutWrapper, PageWrapper } from "./Layout.styled";
+import { LayoutContainer, LayoutWrapper, NonDesktopMessage, PageWrapper } from "./Layout.styled";
 import { ThemeProvider } from "styled-components";
 import theme from "@/styles/theme";
 import GlobalStyles from "@/styles/GlobalStyles";
@@ -22,11 +22,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <HeightProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        <LayoutContainer>
+        <NonDesktopMessage>
+          Please access to the app from a desktop device
+        </NonDesktopMessage>
         <LayoutWrapper>
           <NavBar />
           <PageWrapper>{children}</PageWrapper>
           <Footer />
         </LayoutWrapper>
+        </LayoutContainer>
       </ThemeProvider>
     </HeightProvider>
   );

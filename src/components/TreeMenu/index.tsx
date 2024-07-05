@@ -7,6 +7,7 @@ import {
 } from "./TreeMenu.styled";
 import TreeItem, { TreeItemProps } from "./TreeItem";
 import Icon, { Icons } from "../Icon";
+import Checkbox from "../Checkbox";
 
 export interface TreeActiveItem {
   [key: number]: number | undefined;
@@ -15,6 +16,7 @@ export interface TreeActiveItem {
 export interface TreeMenuItem {
   title: string;
   items: TreeItemProps[];
+  isCheckboxList?: boolean;
 }
 
 export interface TreeMenuProps {
@@ -50,6 +52,10 @@ const TreeMenu: FC<TreeMenuProps> = ({
     onClickItem(itemName);
   };
 
+  const handleCheckboxChange = (isChecked: boolean, itemTitle?: string) => {
+    console.log("check", { isChecked, itemTitle });
+  };
+
   const isOpen = (section: number): boolean =>
     openSections.some((el) => el === section);
   return (
@@ -66,16 +72,26 @@ const TreeMenu: FC<TreeMenuProps> = ({
           </TreeMenuHeader>
           {isOpen(index) && (
             <TreeMenuBody>
-              {item.items.map((item, itemIndex) => (
-                <TreeItem
-                  key={`tree-item-${item.title}`}
-                  {...item}
-                  index={itemIndex}
-                  onClick={(value: number) =>
-                    handleItemClick(index, value, item.title)
-                  }
-                  isActive={itemIndex === activeItem[index]}
-                />
+              {item.items.map((subItem, subItemIndex) => (
+                <>
+                  {item.isCheckboxList ? (
+                    <Checkbox
+                      label={subItem.title}
+                      checked={false}
+                      onChange={handleCheckboxChange}
+                    />
+                  ) : (
+                    <TreeItem
+                      key={`tree-item-${subItem.title}`}
+                      {...subItem}
+                      index={subItemIndex}
+                      onClick={(value: number) =>
+                        handleItemClick(index, value, subItem.title)
+                      }
+                      isActive={subItemIndex === activeItem[index]}
+                    />
+                  )}
+                </>
               ))}
             </TreeMenuBody>
           )}

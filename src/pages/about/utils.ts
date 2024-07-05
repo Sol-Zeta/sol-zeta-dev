@@ -1,5 +1,6 @@
 import { CodeLine } from "@/components/Code";
 import {
+  AT,
   ATTACH_TO_TITLE_KEY,
   CodeTreeItemProps,
 } from "@/components/Code/CodeTree/CodeTreeItem";
@@ -19,7 +20,7 @@ export const TREE_MENU_DATA = [
 export const bioSnippet: CodeLine[] = [
   {
     comment:
-      "bio\n \nMy name is <b>Soledad Pattoglio</b>, but as a 00s child I am, \nI have a nickname and is Sol Zeta. \n \nI'm a Frontend Developer specializing in React, \nwith experience in NextJS, SASS, Tailwind, and more. \nMy fullstack skills include NodeJS, ExpressJS, and databases like NoSQL and SQL. \nI've worked with startups and large companies, \ntackling projects from scratch and maintaining legacy systems. \nExperienced with CI/CD tools like Jenkins and testing with Cypress. \n \nCurious and a constant learner, I love pair programming \nand collaboration. \nAlways excited to take on new challenges and innovate in the tech space.",
+      "bio\n \nMy name is <b>Soledad Pattoglio</b>, but as a 00s child I am, \nI have a nickname and is Sol Zeta. \n \nI'm a Frontend Developer specializing in React, \nwith experience in NextJS, SASS, Redux, GraphQL, and more. \nMy fullstack skills include NodeJS, ExpressJS, and databases like NoSQL and SQL. \nI've worked with startups and large companies, \ntackling projects from scratch and maintaining legacy systems. \nExperienced with CI/CD tools like Jenkins and testing with Cypress. \n \nCurious and a constant learner, I love pair programming \nand collaboration. \nAlways excited to take on new challenges and innovate in the tech space.",
     isBlock: true,
   },
 ];
@@ -31,6 +32,7 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2022 - 2024",
     title: "Frontend Web Developer",
     company: "Ofertia - Mediapost Spain",
+    [AT]: "Ofertia - Mediapost Spain",
     role: "Frontend Web Developer",
     responsibilities: [
       "Develop new backoffice app",
@@ -69,6 +71,7 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2022",
     title: "Frontend Web Developer",
     company: "Laudus",
+    [AT]: "Laudus",
     responsibilities: [
       "Develop ERP app features with ReactJS",
       "Comunicate with design team",
@@ -91,6 +94,7 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2021 - 2022",
     title: "Frontend Web Developer",
     company: "Wiper Gaming - Startup",
+    [AT]: "Wiper Gaming - Startup",
     project: "E-sports digital learning platform",
     responsibilities: [
       "Develop component library with ReactJS",
@@ -113,6 +117,7 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2021",
     title: "Mobile Developer",
     company: "Joy to the World 2021 - Startup",
+    [AT]: "Joy to the World 2021 - Startup",
     project: "iOS and Android interactive app",
     ['special features']: [
       "Interactive map",
@@ -121,10 +126,11 @@ export const jobSnippet: CodeTreeItemProps[] = [
       "Login with Google and Apple",
     ],
     responsibilities: [
-      "Develop mobile features with React Native",
-      "Connect app with the backend in Firebase",
+      "Develop features with React Native",
+      "Connect app with BE in Firebase",
       "Export app for iOS and Android",
-      "Submit application to App Store and Google Store",
+      "Submit app to App Store",
+      "Submit app to Google Store",
     ],
     technologies: [
       "React Native",
@@ -142,6 +148,7 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2020 - 2021",
     title: "Full Stack Development Teacher",
     company: "The Bridge",
+    [AT]: "The Bridge",
     responsibilities: [
       "Prepare and teach Fullstack development classes",
       "Support students individually",
@@ -153,7 +160,8 @@ export const jobSnippet: CodeTreeItemProps[] = [
     date: "2020",
     title: "Frontend Web Developer",
     company: "Poolpo.in - Startup",
-    project: "Insurance policy comparison platform with AI",
+    [AT]: "Poolpo.in - Startup",
+    project: "Insurance policy comparison app",
     responsibilities: [
       "Develop app from sratch with ReactJS",
       "Comunicate with design and backend team",
@@ -167,11 +175,22 @@ export const jobSnippet: CodeTreeItemProps[] = [
     ],
   },
 ];
-export const educationSnippet: CodeLine[] = [
+export const educationSnippet: CodeTreeItemProps[] = [
   {
-    comment:
-      "education\n \nMy name is Soledad Pattoglio.\nI was born in BUE, but I'm currently based in MAD.\nMy name is Soledad Pattoglio.\nI was born in BUE, but I'm currently based in MAD.\nMy name is Soledad Pattoglio.\nI was born in BUE, but I'm currently based in MAD.",
-    isBlock: true,
+    id: 'edu-1',
+    [ATTACH_TO_TITLE_KEY]: "date",
+    date: "2020",
+    title: "Full Stack Web Development",
+    institution: "The Bridge",
+    location: "Madrid, Spain",
+  },
+  {
+    id: 'edu-2',
+    [ATTACH_TO_TITLE_KEY]: "date",
+    date: "2019",
+    title: "Audiovisual Design",
+    institution: "University of Buenos Aires",
+    location: "Buenos Aires, Argentina",
   },
 ];
 
@@ -187,5 +206,6 @@ export const LEFT_CONTENT = [
     id: "education",
     title: "education",
     snippet: educationSnippet,
+    showLineNumber: false
   },
 ];

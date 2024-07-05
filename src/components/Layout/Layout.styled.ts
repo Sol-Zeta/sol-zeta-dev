@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { device } from "@/utils/device";
+
 import {
   flexTheme,
   borderTheme,
@@ -8,6 +10,19 @@ import {
 } from "@/styles/utils";
 
 const background = getColor("background");
+
+export const LayoutContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const NonDesktopMessage = styled.div`
+  display: none;
+  @media (max-width: ${getBreakpoint("md")}) {
+    display: block;
+  }
+`;
 
 export const LayoutWrapper = styled.div`
   ${flexTheme};
@@ -19,12 +34,14 @@ export const LayoutWrapper = styled.div`
   background-color: ${background.medium};
   justify-self: center;
   overflow: hidden;
-  @media (min-width: ${getBreakpoint("md")}) {
-    width: 95%;
-    height: 90vh;
-    border-radius: ${getTheme("borderRadius", "md")};
+  width: 95%;
+  height: 90vh;
+  border-radius: ${getTheme("borderRadius", "md")};
+  @media (max-width: ${getBreakpoint("md")}) {
+    display: none;
   }
 `;
+
 export const PageWrapper = styled.div`
   width: 100%;
   height: calc(100% - 108px);

@@ -6,15 +6,14 @@ const lineTreeColor = css`
 `;
 
 export const TreeContainer = styled.div`
-  margin-bottom: 24px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 24px;
+  max-width: 100%;
 `;
 
 export const Section = styled.div<React.HTMLAttributes<HTMLDivElement>>`
   margin-bottom: 20px;
   position: relative;
-
+  max-width: 100%;
   & p {
     margin: 0;
     padding: 0;
@@ -34,12 +33,21 @@ export const Section = styled.div<React.HTMLAttributes<HTMLDivElement>>`
   }
 `;
 
+export const TitleContainer = styled.div<React.HTMLAttributes<HTMLDivElement>>`
+  max-width: 90%;
+`;
+
+
 export const Title = styled.h2<React.HTMLAttributes<HTMLHeadingElement>>`
-  text-transform: capitalize;
   margin-bottom: 10px;
   padding-left: 5px;
+  text-transform: capitalize;
   font-size: ${getFontSize("lg")};
   color: ${getColor("accent").green};
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   cursor: pointer;
   &::before {
     content: "+ ";
@@ -53,6 +61,9 @@ export const TitleAttached = styled.span`
   font-size: ${getFontSize("md")};
   color: ${getColor("accent").green};
   padding-left: 30px;
+  max-width: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   &::before {
     content: "└- ";
     ${lineTreeColor};
