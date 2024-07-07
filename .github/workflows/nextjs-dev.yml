@@ -33,6 +33,14 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
+      # - name: Unit tests
+      #   run: npm run test
+      # - name: Running e2e tests
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     command: npx cypress run
+      #     start: npm start
+      #     wait-on: http://localhost:3000/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
