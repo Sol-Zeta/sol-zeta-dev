@@ -2,8 +2,7 @@ import React from "react";
 import IdeLayout from "@/components/IdeLayout";
 import { TreeMenuItem } from "@/components/TreeMenu";
 import Code, { CodeLine } from "@/components/Code";
-import { AboutWrapper } from "./about.styled";
-import { LEFT_CONTENT, TREE_MENU_DATA } from "./utils";
+import { LEFT_CONTENT, TREE_MENU_DATA } from "@/utils/about";
 import CodeTree from "@/components/Code/CodeTree";
 import { CodeTreeItemProps } from "@/components/Code/CodeTree/CodeTreeItem";
 

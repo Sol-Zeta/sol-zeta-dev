@@ -4,7 +4,7 @@ import {
   ArticleWrapper,
   Background,
   SectionWrapper,
-} from "./index.styled";
+} from "@/styles/pages/home.styled";
 import Code, { CodeLine } from "@/components/Code";
 
 interface Props {

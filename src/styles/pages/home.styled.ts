@@ -1,4 +1,4 @@
-import { getBreakpoint, getColor } from "@/styles/utils";
+import { getColor } from "@/styles/utils";
 import styled from "styled-components";
 
 export const SectionWrapper = styled.section`

@@ -18,7 +18,7 @@ const TREE_MENU_DATA = [
   },
 ];
 
-const Home: React.FC<Props> = () => {
+const Projects: React.FC<Props> = () => {
   return (
     <div>
       <IdeLayout menuItems={TREE_MENU_DATA as unknown as TreeMenuItem[]} mainContent={[]}>
@@ -28,4 +28,4 @@ const Home: React.FC<Props> = () => {
   );
 };
 
-export default Home;
+export default Projects;
