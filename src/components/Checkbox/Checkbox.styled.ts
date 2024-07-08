@@ -47,10 +47,14 @@ export const StyledCheckbox = styled.div<InputProps>`
     transform: rotate(45deg);
   }
 `;
-
-export const CheckboxLabel = styled.label`
+export const LabelContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 10px;
+`;
+export const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: start;
   position: relative;
   gap: 16px;
   margin-left: 8px;
@@ -61,5 +65,8 @@ export const CheckboxLabel = styled.label`
   overflow: hidden;
   &.checked {
     color: ${getColor("secondary").white};
+    svg {
+      fill: ${getColor("secondary").white};
+    }
   }
 `;

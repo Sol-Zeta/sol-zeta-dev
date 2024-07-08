@@ -9,7 +9,7 @@ import {
 } from "./IdeLayout.styled";
 import TreeMenu, { TreeActiveItem, TreeMenuItem } from "../TreeMenu";
 import IdeFile from "./IdeFile";
-import Icon, { Icons } from "../Icon";
+import Icon, { Icons } from "@/components/Icon";
 import LineNumbers from "./LineNumbers";
 import { useHeight } from "@/context/HeightContext";
 import NoFileSelected from "./NoFileSelected";

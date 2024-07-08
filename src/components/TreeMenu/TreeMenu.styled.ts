@@ -8,8 +8,9 @@ interface TreeMenuSection {
 export const TreeMenuWrapper = styled.div`
   ${borderTheme}
   border-top: none;
+  border-left: none;
   /* width: 350px; */
-  height: 100%;
+  max-height: calc(100% - 3000px);
 `;
 
 export const TreeMenuSection = styled.div<TreeMenuSection>`
@@ -34,5 +35,7 @@ export const TreeMenuHeader = styled.div`
   border-bottom: ${getBorder()};
 `;
 export const TreeMenuBody = styled.div`
-    border-bottom: ${getBorder()};
+    // border-bottom: ${getBorder()};
+    max-height: calc(100vh - 268px);
+    overflow-y: scroll;
 `;

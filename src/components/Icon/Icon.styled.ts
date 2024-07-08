@@ -1,6 +1,6 @@
 import { getColor } from "@/styles/utils";
 import styled from "styled-components";
-import { IconButtonProps } from ".";
+import { IconButtonProps } from "./utils";
 
 export const IconWrapper = styled.div<IconButtonProps>`
   cursor: ${({ isButton }) => isButton && "pointer"};

@@ -4,15 +4,19 @@ import {
   HiddenCheckbox,
   StyledCheckbox,
   CheckboxLabel,
+  LabelContainer,
 } from "./Checkbox.styled";
+import Icon, { Icons } from "@/components/Icon";
+import { IconChildren } from "../Icon/utils";
 
-interface CheckboxProps {
-  checked: boolean;
-  onChange: (isChecked: boolean, label?: string) => void;
+export interface CheckboxProps {
+  checked?: boolean;
+  onChange: (isChecked?: boolean, label?: string) => void;
   label?: string;
+  icon?: keyof typeof Icons;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, label }) => {
+const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, label, icon: iconKey }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheckboxChange = (e: any) => {
@@ -30,7 +34,10 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, label }) => {
         onClick={handleCheckboxChange}
       >
         <StyledCheckbox checked={isChecked} />
-        {label}
+        <LabelContainer>
+          {iconKey && <Icon icon={Icons[iconKey] as keyof typeof IconChildren} />}
+          {label}
+        </LabelContainer>
       </CheckboxLabel>
     </CheckboxWrapper>
   );

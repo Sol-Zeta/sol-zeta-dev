@@ -7,7 +7,8 @@ import {
 } from "./TreeMenu.styled";
 import TreeItem, { TreeItemProps } from "./TreeItem";
 import Icon, { Icons } from "../Icon";
-import Checkbox from "../Checkbox";
+import Checkbox, { CheckboxProps } from "../Checkbox";
+import CheckboxList, { CheckboxItem } from "./CheckboxList";
 
 export interface TreeActiveItem {
   [key: number]: number | undefined;
@@ -52,7 +53,7 @@ const TreeMenu: FC<TreeMenuProps> = ({
     onClickItem(itemName);
   };
 
-  const handleCheckboxChange = (isChecked: boolean, itemTitle?: string) => {
+  const handleCheckboxChange = (isChecked?: boolean, itemTitle?: string) => {
     console.log("check", { isChecked, itemTitle });
   };
 
@@ -72,13 +73,31 @@ const TreeMenu: FC<TreeMenuProps> = ({
           </TreeMenuHeader>
           {isOpen(index) && (
             <TreeMenuBody>
-              {item.items.map((subItem, subItemIndex) => (
+              {item.isCheckboxList ? (
+                <CheckboxList items={item.items as unknown as CheckboxItem[]} onClick={handleCheckboxChange}/>
+              ) : (
+                <>
+                {item.items.map((subItem, subItemIndex) =>(
+                    <TreeItem
+                      key={`tree-item-${subItem.title}`}
+                      {...subItem}
+                      index={subItemIndex}
+                      onClick={(value: number) =>
+                        handleItemClick(index, value, subItem.title)
+                      }
+                      isActive={subItemIndex === activeItem[index]}
+                    />
+                  ))}
+                </>
+              )}
+              {/* {item.items.map((subItem, subItemIndex) => (
                 <>
                   {item.isCheckboxList ? (
                     <Checkbox
                       label={subItem.title}
                       checked={false}
                       onChange={handleCheckboxChange}
+                      icon={subItem.icon}
                     />
                   ) : (
                     <TreeItem
@@ -92,7 +111,7 @@ const TreeMenu: FC<TreeMenuProps> = ({
                     />
                   )}
                 </>
-              ))}
+              ))} */}
             </TreeMenuBody>
           )}
         </TreeMenuSection>
