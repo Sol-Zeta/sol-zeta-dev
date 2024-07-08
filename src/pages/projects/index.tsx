@@ -8,7 +8,7 @@ interface Props {
 }
 const TREE_MENU_DATA = [
   {
-    title: "filter-by-tech",
+    title: "technologies",
     isCheckboxList: true,
     items: [
       { title: "bio", color: getColor("accent").salmon },

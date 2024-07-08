@@ -17,7 +17,6 @@ export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
   overflow: hidden;
   padding: 0;
   position: absolute;
-  white-space: nowrap;
   width: 1px;
 `;
 
@@ -39,8 +38,8 @@ export const StyledCheckbox = styled.div<InputProps>`
     content: "";
     position: absolute;
     display: ${(props) => (props.checked ? "block" : "none")};
-    left: 6px;
-    top: 2px;
+    left: 7.5px;
+    top: 4px;
     width: 3px;
     height: 8px;
     border: solid white;
@@ -56,6 +55,10 @@ export const CheckboxLabel = styled.label`
   gap: 16px;
   margin-left: 8px;
   color: ${getColor("secondary").gray};
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   &.checked {
     color: ${getColor("secondary").white};
   }
