@@ -5,7 +5,7 @@ interface InputProps {
 }
 
 export const CheckboxWrapper = styled.div`
-  padding: 16px 24px;
+  max-width: 100%;
 `;
 
 export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
@@ -21,18 +21,14 @@ export const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 `;
 
 export const StyledCheckbox = styled.div<InputProps>`
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   ${borderTheme}
   border-color: ${getColor("secondary").gray};
   background: ${(props) =>
     props.checked ? getColor("secondary").gray : "transparent"};
   border-radius: 3px;
   transition: all 150ms;
-
-  ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px pink;
-  }
 
   &::after {
     content: "";
@@ -49,8 +45,12 @@ export const StyledCheckbox = styled.div<InputProps>`
 `;
 export const LabelContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 10px;
+  max-width: 80%;
+  & p {
+    white-space: wrap;
+  }
 `;
 export const CheckboxLabel = styled.label`
   display: flex;
@@ -60,9 +60,6 @@ export const CheckboxLabel = styled.label`
   margin-left: 8px;
   color: ${getColor("secondary").gray};
   max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
   &.checked {
     color: ${getColor("secondary").white};
     svg {

@@ -2,7 +2,12 @@ import AndroidStudio from "@/assets/icons/android.svg";
 import Aws from "@/assets/icons/aws.svg";
 import Azure from "@/assets/icons/azure.svg";
 import ChakraUi from "@/assets/icons/chakraui.svg";
+import CheckboxBlank from "@/assets/icons/checkbox-blank-line.svg";
+import CheckboxCheck from "@/assets/icons/checkbox-check-line.svg";
+import CheckboxIntermediate from "@/assets/icons/checkbox-indeterminate-line.svg";
 import ChevronDown from "@/assets/icons/chevron-down.svg";
+import ChevronLeft from "@/assets/icons/chevron-left.svg";
+import ChevronRight from "@/assets/icons/chevron-right.svg";
 import ChevronUp from "@/assets/icons/chevron-up.svg";
 import Close from "@/assets/icons/close-fill.svg";
 import Coffee from "@/assets/icons/coffee.svg";
@@ -35,6 +40,7 @@ import PostgreSql from "@/assets/icons/postgresq.svg";
 import ReactJs from "@/assets/icons/reactjs.svg";
 import Redux from "@/assets/icons/redux.svg";
 import Sass from "@/assets/icons/sass.svg";
+import Search from "@/assets/icons/search-line.svg";
 import Seo from "@/assets/icons/seo.svg";
 import Server from "@/assets/icons/server.svg";
 import StarFill from "@/assets/icons/star-fill.svg";
@@ -55,7 +61,7 @@ export interface IconButtonProps {
 }
 
 export interface IconProps extends IconButtonProps {
-  icon: keyof typeof IconChildren;
+  icon: keyof typeof Icons;
   className?: string;
   onClick?: (e: React.MouseEvent) => void;
 }
@@ -65,7 +71,12 @@ export enum Icons {
   AWS = "AWS",
   AZURE = "AZURE",
   CHAKRA_UI = "CHAKRA_UI",
+  CHECKBOX_CHECK = "CHECKBOX_CHECK",
+  CHECKBOX_BLANK = "CHECKBOX_BLANK",
+  CHECKBOX_INTERMEDIATE = "CHECKBOX_INTERMEDIATE",
   CHEVRON_DOWN = "CHEVRON_DOWN",
+  CHEVRON_LEFT = "CHEVRON_LEFT",
+  CHEVRON_RIGHT = "CHEVRON_RIGHT",
   CHEVRON_UP = "CHEVRON_UP",
   CLOSE = "CLOSE",
   COFFEE = "COFFEE",
@@ -100,6 +111,7 @@ export enum Icons {
   REACT_NATIVE = "REACT_NATIVE",
   REDUX = "REDUX",
   SASS = "SASS",
+  SEARCH = "SEARCH",
   SEO = "SEO",
   SERVER = "SERVER",
   STAR_FILL = "STAR_FILL",
@@ -118,7 +130,12 @@ export const IconChildren = {
   [Icons.AWS]: <Aws />,
   [Icons.AZURE]: <Azure />,
   [Icons.CHAKRA_UI]: <ChakraUi />,
+  [Icons.CHECKBOX_BLANK]: <CheckboxBlank />,
+  [Icons.CHECKBOX_CHECK]: <CheckboxCheck />,
+  [Icons.CHECKBOX_INTERMEDIATE]: <CheckboxIntermediate />,
   [Icons.CHEVRON_DOWN]: <ChevronDown />,
+  [Icons.CHEVRON_LEFT]: <ChevronLeft />,
+  [Icons.CHEVRON_RIGHT]: <ChevronRight />,
   [Icons.CHEVRON_UP]: <ChevronUp />,
   [Icons.CLOSE]: <Close />,
   [Icons.COFFEE]: <Coffee />,
@@ -152,6 +169,7 @@ export const IconChildren = {
   [Icons.REACT_NATIVE]: <ReactJs />,
   [Icons.REDUX]: <Redux />,
   [Icons.SASS]: <Sass />,
+  [Icons.SEARCH]: <Search />,
   [Icons.SEO]: <Seo />,
   [Icons.SERVER]: <Server />,
   [Icons.STAR_FILL]: <StarFill />,

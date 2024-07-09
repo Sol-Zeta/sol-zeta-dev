@@ -3,20 +3,22 @@ import { buttonPadding, getColor } from "@/styles/utils";
 import { NavItemProps, NavItemRoles } from ".";
 
 export const NavBarWrapper = styled.div`
-  /* position: absolute;
-  top: 0; */
   width: 100%;
+  height: 48px;
   border-bottom: 1px solid ${getColor("line").primary};
 `;
 
 export const NavList = styled.ul`
   display: flex;
   justify-content: start;
+  align-items: center;
+  height: 100%;
 `;
 
 export const NavItem = styled.li<NavItemProps>`
   ${buttonPadding}
   list-style: none;
+  height: 100%;
   min-width: ${({ role }) => role === NavItemRoles.MAIN && "300px"};
   border-right: 1px solid ${getColor("line").primary};
   position: relative;

@@ -14,7 +14,7 @@ import LineNumbers from "./LineNumbers";
 import { useHeight } from "@/context/HeightContext";
 import NoFileSelected from "./NoFileSelected";
 
-export interface mainContent {
+export interface FilesContent {
   showLineNumber?: boolean;
   id: string;
   title: string;
@@ -24,26 +24,26 @@ export interface mainContent {
 export interface IdeLayoutProps {
   children?: React.ReactNode;
   menuItems?: TreeMenuItem[];
-  mainContent: mainContent[];
+  filesContent?: FilesContent[];
   secondaryContent?: any[];
 }
 
 export const IdeLayout: React.FC<IdeLayoutProps> = ({
   menuItems,
   children,
-  mainContent = [],
-  secondaryContent = []
+  filesContent = [],
+  secondaryContent = [],
 }) => {
   const { height } = useHeight();
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([
-    mainContent[0]?.id,
-  ]);
-  const [selectedTab, setSelectedTab] = useState<string>(mainContent[0]?.id);
+  const [selectedFiles, setSelectedFiles] = useState<string[]>(
+    filesContent[0] ? [filesContent[0]?.id] : []
+  );
+  const [selectedTab, setSelectedTab] = useState<string>(filesContent[0]?.id);
   const [selectedMenuItem, setSelectedMenuItem] = useState<TreeActiveItem>({
     0: 0,
   });
   const [showLineNumber, setShowLineNumber] = useState(
-    mainContent[0]?.showLineNumber !== false
+    filesContent[0]?.showLineNumber !== false
   );
   const handleMenuClick = (fileName: string) => {
     setSelectedTab(fileName);
@@ -75,7 +75,7 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
 
   useEffect(() => {
     const showNumbers =
-      mainContent.find((item) => item.id === selectedTab)?.showLineNumber !==
+      filesContent.find((item) => item.id === selectedTab)?.showLineNumber !==
       false;
     setShowLineNumber(showNumbers);
   }, [selectedTab]);
@@ -92,33 +92,39 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
       />
       <ContentContainer>
         <LeftContainer>
-          <TabsContainer>
-            {selectedFiles.map((tabId: string) => (
-              <FileTab
-                onClick={() => setSelectedTab(tabId)}
-                isActive={selectedTab === tabId}
-                key={tabId}
-              >
-                {mainContent.find((item) => item.id === tabId)?.title}
-                <Icon
-                  icon={Icons.CLOSE}
-                  onClick={(e) => handleCloseTab(e, tabId)}
-                />
-              </FileTab>
-            ))}
-          </TabsContainer>
-          {selectedFiles.length && showLineNumber ? (
-            <LineNumbers height={height} />
-          ) : null}
           {selectedFiles.length ? (
-            <IdeFile {...mainContent.find((item) => item.id === selectedTab)} />
-          ) : (
-            <NoFileSelected />
-          )}
-          {/* {mainContent} */}
-          {/* {children} */}
+            <>
+              {" "}
+              <TabsContainer>
+                {selectedFiles.map((tabId: string) => (
+                  <FileTab
+                    onClick={() => setSelectedTab(tabId)}
+                    isActive={selectedTab === tabId}
+                    key={tabId}
+                  >
+                    {filesContent.find((item) => item.id === tabId)?.title}
+                    <Icon
+                      icon={Icons.CLOSE}
+                      onClick={(e) => handleCloseTab(e, tabId)}
+                    />
+                  </FileTab>
+                ))}
+              </TabsContainer>
+              {selectedFiles.length || showLineNumber ? (
+                <LineNumbers height={height} />
+              ) : null}
+              {selectedFiles.length ? (
+                <IdeFile
+                  {...filesContent.find((item) => item.id === selectedTab)}
+                />
+              ) : (
+                <NoFileSelected />
+              )}
+            </>
+          ) : null}
+          {children}
         </LeftContainer>
-        <RightContainer>right</RightContainer>
+        {!children && <RightContainer>right</RightContainer>}
       </ContentContainer>
     </LayoutWrapper>
   );

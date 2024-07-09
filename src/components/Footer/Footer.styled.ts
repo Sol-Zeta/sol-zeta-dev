@@ -2,9 +2,8 @@ import { getColor } from "@/styles/utils";
 import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +11,8 @@ export const FooterWrapper = styled.footer`
   color: ${getColor("secondary").gray};
   div {
     display: flex;
+    align-items: center;
+    height: 100%;
   }
 `;
 
@@ -21,6 +22,7 @@ export const FooterItem = styled.div`
   align-items: start;
   padding: 16px;
   border-right: 1px solid ${getColor("line").primary};
+  height: 100%;
   &#last { 
     gap: 16px;
     justify-self: end;

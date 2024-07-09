@@ -43,12 +43,15 @@ const NAV_SECTIONS = [
 
 const NavBar: FC<NavBarProps> = () => {
   const router = useRouter();
-
   return (
     <NavBarWrapper data-testid="NavBar">
       <NavList>
         {NAV_SECTIONS.map(({ title, role, href }) => (
-          <NavItem key={title} role={role} isActive={router.pathname === href}>
+          <NavItem
+            key={title}
+            role={role}
+            isActive={router.pathname.split("/")[1] === href?.split("/")[1]}
+          >
             {href ? <Link href={href}>{title}</Link> : <>{title}</>}
           </NavItem>
         ))}

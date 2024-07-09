@@ -1,4 +1,4 @@
-import { IconChildren } from "@/components/Icon/utils";
+import { IconChildren, Icons } from "@/components/Icon/utils";
 import Icon from "../Icon";
 import { ButtonWrapper } from "./Button.styled";
 import { ReactNode } from "react";
@@ -6,7 +6,8 @@ import { ReactNode } from "react";
 export enum ButtonVariants {
   LINK = 'LINK',
   OUTLINED = 'OUTLINED',
-  SOLID = 'SOLID',
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
 }
 
 export enum IconPositions {
@@ -15,21 +16,22 @@ export enum IconPositions {
 }
 
 export interface ButtonProps {
-  icon?: keyof typeof IconChildren;
-  iconPosition: keyof typeof IconPositions;
+  icon?: keyof typeof Icons;
+  iconPosition?: keyof typeof IconPositions;
   children?: ReactNode;
   onClick: () => void;
   variant?: keyof typeof ButtonVariants;
 }
 
 
-const Button: React.FC<ButtonProps> = ({ icon, iconPosition = IconPositions.BEFORE, children, onClick, variant = ButtonVariants.SOLID }) => {
+const Button: React.FC<ButtonProps> = ({ icon, iconPosition = IconPositions.BEFORE, children, onClick, variant = ButtonVariants.PRIMARY }) => {
 
   return (
     <ButtonWrapper 
       onClick={onClick} 
       iconPosition={iconPosition} 
       variant={variant}
+      className={variant.toLowerCase()}
     >
       {icon ? (
         <Icon icon={icon} />

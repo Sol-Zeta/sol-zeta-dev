@@ -14,6 +14,7 @@ const Icon: FC<IconProps> = ({
   onClick,
 }) => {
 
+  //@ts-ignore
   const SelectedIcon = () => IconChildren[icon] || <p>no icon</p>
 
   return (

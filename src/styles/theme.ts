@@ -2,10 +2,15 @@ import { DefaultTheme } from "styled-components";
 
 export const colors = {
   gray: "#607B96",
+  buttonGray: "#1C2B3A",
+  buttonLightGray: "#263B50",
   green: "#3C9D93",
   blue: "#4D5BCE",
+  black: "#000000",
   white: "#FFFFFF",
+  white70: "#FFFFFFB3",
   orange: "#FEA55F",
+  lightOrange: "#FFB982",
   lightGreen: "#43D9AD",
   greenCode: '#dcdd9a',
   salmon: "#E99287",
@@ -14,6 +19,8 @@ export const colors = {
   neutralMedium: "#011221",
   neutralLight: "#011627",
   neutralLighter: "#1E2D3D",
+  yellow: "#FFBF00",
+  lightBlue: "#61DBFB",
 };
 
 const theme: DefaultTheme = {
@@ -35,7 +42,9 @@ const theme: DefaultTheme = {
       gray: colors.gray,
       green: colors.green,
       blue: colors.blue,
+      black: colors.black,
       white: colors.white,
+      white70: colors.white70,
     },
     accent: {
       orange: colors.orange,
@@ -43,9 +52,16 @@ const theme: DefaultTheme = {
       salmon: colors.salmon,
       plum: colors.plum,
     },
+    button: {
+      primary: colors.orange,
+      primaryHover: colors.lightOrange,
+      secondary: colors.buttonGray,
+      secondaryHover: colors.buttonLightGray,
+    },
     text: {
       primary: colors.white,
       secondary: colors.blue,
+      gray: colors.buttonLightGray
     },
     code: {
       comments: colors.gray,

@@ -62,22 +62,21 @@ const TreeMenu: FC<TreeMenuProps> = ({
   return (
     <TreeMenuWrapper data-testid="TreeMenu">
       {items.map((item, index) => (
-        <TreeMenuSection
-          isOpen={isOpen(index)}
-          onClick={() => handleClick(index)}
-          key={item.title}
-        >
-          <TreeMenuHeader>
+        <TreeMenuSection isOpen={isOpen(index)} key={item.title}>
+          <TreeMenuHeader onClick={() => handleClick(index)}>
             <Icon className="chevron" icon={Icons.CHEVRON_DOWN} />
             <p>{item.title}</p>
           </TreeMenuHeader>
           {isOpen(index) && (
             <TreeMenuBody>
               {item.isCheckboxList ? (
-                <CheckboxList items={item.items as unknown as CheckboxItem[]} onClick={handleCheckboxChange}/>
+                <CheckboxList
+                  items={item.items as unknown as CheckboxItem[]}
+                  onClick={handleCheckboxChange}
+                />
               ) : (
                 <>
-                {item.items.map((subItem, subItemIndex) =>(
+                  {item.items.map((subItem, subItemIndex) => (
                     <TreeItem
                       key={`tree-item-${subItem.title}`}
                       {...subItem}

@@ -9,14 +9,15 @@ export const TreeMenuWrapper = styled.div`
   ${borderTheme}
   border-top: none;
   border-left: none;
-  /* width: 350px; */
-  max-height: calc(100% - 3000px);
+  height: 100%;
 `;
 
 export const TreeMenuSection = styled.div<TreeMenuSection>`
   display: flex;
   flex-direction: column;
+  width: 350px;
   gap: 16px;
+  height: calc(100% - 20px);
   cursor: pointer;
   color: ${({ isOpen }) =>
     isOpen ? getColor("secondary").white : getColor("secondary").gray};
@@ -36,6 +37,6 @@ export const TreeMenuHeader = styled.div`
 `;
 export const TreeMenuBody = styled.div`
     // border-bottom: ${getBorder()};
-    max-height: calc(100vh - 268px);
-    overflow-y: scroll;
+    /* max-height: calc(100vh - 268px); */
+    overflow-y: hidden;
 `;
