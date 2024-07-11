@@ -1,3 +1,4 @@
+import About from "@/assets/icons/profile-fill.svg";
 import AndroidStudio from "@/assets/icons/android.svg";
 import Aws from "@/assets/icons/aws.svg";
 import Azure from "@/assets/icons/azure.svg";
@@ -11,6 +12,7 @@ import ChevronRight from "@/assets/icons/chevron-right.svg";
 import ChevronUp from "@/assets/icons/chevron-up.svg";
 import Close from "@/assets/icons/close-fill.svg";
 import Coffee from "@/assets/icons/coffee.svg";
+import Contact from "@/assets/icons/mail-fill.svg";
 import Css from "@/assets/icons/css3.svg";
 import Cypress from "@/assets/icons/cypress.svg";
 import Directory from "@/assets/icons/directory.svg";
@@ -25,6 +27,7 @@ import Gitlab from "@/assets/icons/gitlab.svg";
 import GoogleAnalytics from "@/assets/icons/google-analytics.svg";
 import Graphql from "@/assets/icons/graphql.svg";
 import Highcharts from "@/assets/icons/highcharts.svg";
+import Home from "@/assets/icons/home-fill.svg";
 import Html from "@/assets/icons/html5.svg";
 import Javascript from "@/assets/icons/javascript.svg";
 import Jenkins from "@/assets/icons/jenkins.svg";
@@ -67,6 +70,7 @@ export interface IconProps extends IconButtonProps {
 }
 
 export enum Icons {
+  ABOUT = "ABOUT",
   ANDROID_STUDIO = "ANDROID_STUDIO",
   AWS = "AWS",
   AZURE = "AZURE",
@@ -80,6 +84,7 @@ export enum Icons {
   CHEVRON_UP = "CHEVRON_UP",
   CLOSE = "CLOSE",
   COFFEE = "COFFEE",
+  CONTACT = "CONTACT",
   CONTEXT_API = "CONTEXT_API",
   CSS = "CSS",
   CYPRESS = "CYPRESS",
@@ -95,6 +100,7 @@ export enum Icons {
   GOOGLE_ANALYTICS = "GOOGLE_ANALYTICS",
   GRAPHQL = "GRAPHQL",
   HIGHCHARTS = "HIGHCHARTS",
+  HOME = "HOME",
   HTML = "HTML",
   JAVASCRIPT = "JAVASCRIPT",
   JENKINS = "JENKINS",
@@ -126,6 +132,7 @@ export enum Icons {
 }
 
 export const IconChildren = {
+  [Icons.ABOUT]: <About />,
   [Icons.ANDROID_STUDIO]: <AndroidStudio />,
   [Icons.AWS]: <Aws />,
   [Icons.AZURE]: <Azure />,
@@ -139,6 +146,7 @@ export const IconChildren = {
   [Icons.CHEVRON_UP]: <ChevronUp />,
   [Icons.CLOSE]: <Close />,
   [Icons.COFFEE]: <Coffee />,
+  [Icons.CONTACT]: <Contact />,
   [Icons.CSS]: <Css />,
   [Icons.CYPRESS]: <Cypress />,
   [Icons.DIRECTORY]: <Directory />,
@@ -153,6 +161,7 @@ export const IconChildren = {
   [Icons.GOOGLE_ANALYTICS]: <GoogleAnalytics />,
   [Icons.GRAPHQL]: <Graphql />,
   [Icons.HIGHCHARTS]: <Highcharts />,
+  [Icons.HOME]: <Home />,
   [Icons.HTML]: <Html />,
   [Icons.JAVASCRIPT]: <Javascript />,
   [Icons.JENKINS]: <Jenkins />,

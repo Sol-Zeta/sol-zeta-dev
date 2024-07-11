@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "@/utils/device";
 
 import {
   flexTheme,
@@ -16,7 +15,10 @@ export const LayoutContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 64px;
+  padding: 0;
+  @media (min-width: ${getBreakpoint("md")}) {
+    padding: 64px;
+  }
 `;
 
 export const NonDesktopMessage = styled.div`
@@ -29,23 +31,33 @@ export const NonDesktopMessage = styled.div`
 export const LayoutWrapper = styled.div`
   ${flexTheme};
   ${borderTheme};
-  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   background-color: ${background.medium};
-  justify-self: center;
-  overflow: hidden;
-  width: 95%;
   border-radius: ${getTheme("borderRadius", "md")};
   @media (min-width: ${getBreakpoint("md")}) {
+    overflow: hidden;
+    width: 95%;
+  }
+`;
 
+export const MobileHeader = styled.div`
+  ${borderTheme}
+  padding: 16px 24px;
+  width: 100%;
+  background-color: ${getColor('background').medium};
+  color: ${getColor('secondary').gray};
+  @media (min-width: ${getBreakpoint("md")}) {
+    display: none;
   }
 `;
 
 export const PageWrapper = styled.div`
   width: 100%;
-  min-height: calc(100% - 112px);
-  display: flex;
-  align-items: start;
+  height: 100%;
+  @media (min-width: ${getBreakpoint("md")}) {
+    min-height: calc(100% - 112px);
+  }
 `;

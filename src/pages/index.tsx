@@ -46,7 +46,7 @@ const homeSnippet: CodeLine[] = [
     codeMargin: "0 0 16px 0",
   },
   {
-    comment: "🚀 Welcome to my digital portfolio!",
+    comment: "🚀 Welcome to my portfolio!",
   },
 ];
 

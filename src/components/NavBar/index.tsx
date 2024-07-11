@@ -1,10 +1,13 @@
-import React, { FC, useState } from "react";
-import { NavBarWrapper, NavItem, NavList } from "./NavBar.styled";
+import React, { FC } from "react";
+import {
+  NavBarWrapper,
+  NavItem,
+  NavList,
+  MobileNavWrapper,
+} from "./NavBar.styled";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import path from "path";
-
-interface NavBarProps {}
+import Icon, { Icons } from "../Icon";
 
 export interface NavItemProps {
   children: React.ReactNode;
@@ -25,38 +28,90 @@ const NAV_SECTIONS = [
   {
     title: "_hello",
     href: "/",
+    icon: Icons.HOME,
   },
   {
     title: "_about",
     href: "/about",
+    icon: Icons.ABOUT,
   },
-  {
-    title: "_projects",
-    href: "/projects",
-  },
+  // {
+  //   title: "_projects",
+  //   href: "/projects",
+  // },
   {
     title: "_contact",
     role: NavItemRoles.LAST,
     href: "/contact",
+    icon: Icons.CONTACT,
+  },
+  {
+    title: "github",
+    desktop: false,
+    href: "https://github.com/Sol-Zeta",
+    icon: Icons.GITHUB,
+  },
+  {
+    title: "linkedin",
+    desktop: false,
+    href: "https://www.linkedin.com/in/mspattoglio/",
+    icon: Icons.LINKEDIN,
   },
 ];
 
-const NavBar: FC<NavBarProps> = () => {
+const MobileNavBar: FC = () => {
+  const router = useRouter();
+  console.log(router.pathname);
+  return (
+    <MobileNavWrapper data-testid="NavBar">
+      <NavList>
+        {NAV_SECTIONS.map(({ title, role, href, icon }) => {
+          console.log(router.pathname, href);
+          const isActive = (router.pathname.split("/")[1] === href?.split("/")[1])
+          const isExternalLink = !(href?.split("")[0] === "/");
+
+          return (
+            <NavItem
+              key={title}
+              role={role}
+              isActive={isActive}
+              className={isExternalLink ? '' : 'internalLink'}
+            >
+              {href ? (
+                <Link href={href} target={isExternalLink ? "_blank" : "_self"}>
+                  <Icon icon={icon} isButton={false}/>
+                </Link>
+              ) : null}
+            </NavItem>
+          );
+        })}
+      </NavList>
+    </MobileNavWrapper>
+  );
+};
+
+const NavBar: FC = () => {
   const router = useRouter();
   return (
-    <NavBarWrapper data-testid="NavBar">
-      <NavList>
-        {NAV_SECTIONS.map(({ title, role, href }) => (
-          <NavItem
-            key={title}
-            role={role}
-            isActive={router.pathname.split("/")[1] === href?.split("/")[1]}
-          >
-            {href ? <Link href={href}>{title}</Link> : <>{title}</>}
-          </NavItem>
-        ))}
-      </NavList>
-    </NavBarWrapper>
+    <>
+      <MobileNavBar />
+      <NavBarWrapper data-testid="NavBar">
+        <NavList>
+          {NAV_SECTIONS.map(({ title, role, href, desktop }) => {
+            if (desktop === false) return null;
+            return (
+              <NavItem
+                key={title}
+                role={role}
+                isActive={router.pathname.split("/")[1] === href?.split("/")[1]}
+              >
+                {href ? <Link href={href}>{title}</Link> : <>{title}</>}
+              </NavItem>
+            );
+          })}
+        </NavList>
+      </NavBarWrapper>
+    </>
   );
 };
 

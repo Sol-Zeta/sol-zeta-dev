@@ -1,6 +1,6 @@
 // 'use client'
 import type { Metadata } from "next";
-import { LayoutContainer, LayoutWrapper, NonDesktopMessage, PageWrapper } from "./Layout.styled";
+import { LayoutContainer, LayoutWrapper, NonDesktopMessage, PageWrapper, MobileHeader } from "./Layout.styled";
 import { ThemeProvider } from "styled-components";
 import theme from "@/styles/theme";
 import GlobalStyles from "@/styles/GlobalStyles";
@@ -28,8 +28,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </NonDesktopMessage> */}
         <LayoutWrapper>
           <NavBar />
+          <MobileHeader>soledad-pattoglio</MobileHeader>
           <PageWrapper>{children}</PageWrapper>
-          <Footer />
+          {/* <Footer /> */}
         </LayoutWrapper>
         </LayoutContainer>
       </ThemeProvider>

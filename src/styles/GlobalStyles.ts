@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { colors } from "./theme";
-import { getTheme } from "./utils";
+import { getBreakpoint, getTheme } from "./utils";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -38,13 +38,25 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${colors.neutralDark};
     color: ${colors.white};
     margin: 0;
+    padding: 0;
+    /* max-width: 100vw;
+    height: 100vh; */
     & > div { 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+    @media (min-width: ${getBreakpoint("md")}) {
+      & > div { 
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 100vh;
     }
+  }
 
   }
 
