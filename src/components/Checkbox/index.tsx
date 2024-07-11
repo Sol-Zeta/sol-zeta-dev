@@ -44,7 +44,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
     hiddenCheckboxRef.current.click();
   };
   const handleCheckboxChange = (e: any) => {
-    console.log({ e });
     e.stopPropagation();
     setIsChecked(e.target.checked);
     onChange(e.target.checked, label);

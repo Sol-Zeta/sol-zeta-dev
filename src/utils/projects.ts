@@ -127,30 +127,30 @@ export const PROJECTS_DATA: ProjectData[] = [
       },
     ],
   },
-  {
-    id: "backsystem",
-    title: "Backsystem",
-    description: "A backoffice web application made for Ofertia stakeholders",
-    image:
-      "https://images.unsplash.com/photo-1632425422799-286dc4325dbb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    tags: [
-      TechTags.NEXT,
-      TechTags.REACT,
-      TechTags.TAILWIND,
-      TechTags.SASS,
-      TechTags.STORYBOOK,
-      TechTags.NODEJS,
-    ],
-    highlightedTags: [TechTags.REACT, TechTags.NEXTJS],
-    fullContent: [
-      {
-        id: "a1",
-        text: "long content",
-        image: "",
-        imageAlt: "",
-      },
-    ],
-  },
+  // {
+  //   id: "backsystem",
+  //   title: "Backsystem",
+  //   description: "A backoffice web application made for Ofertia stakeholders",
+  //   image:
+  //     "https://images.unsplash.com/photo-1632425422799-286dc4325dbb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   tags: [
+  //     TechTags.NEXT,
+  //     TechTags.REACT,
+  //     TechTags.TAILWIND,
+  //     TechTags.SASS,
+  //     TechTags.STORYBOOK,
+  //     TechTags.NODEJS,
+  //   ],
+  //   highlightedTags: [TechTags.REACT, TechTags.NEXTJS],
+  //   fullContent: [
+  //     {
+  //       id: "a1",
+  //       text: "long content",
+  //       image: "",
+  //       imageAlt: "",
+  //     },
+  //   ],
+  // },
   {
     id: "offers-and-catalogues",
     title: "Offers Searcher",

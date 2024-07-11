@@ -54,7 +54,6 @@ const TreeMenu: FC<TreeMenuProps> = ({
   };
 
   const handleCheckboxChange = (isChecked?: boolean, itemTitle?: string) => {
-    console.log("check", { isChecked, itemTitle });
   };
 
   const isOpen = (section: number): boolean =>

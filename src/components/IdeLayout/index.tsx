@@ -51,7 +51,6 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
       return;
     }
     setSelectedFiles([...selectedFiles, fileName]);
-    console.log({ selectedFiles, selectedTab, selectedMenuItem });
   };
 
   const handleCloseTab = (e: React.MouseEvent, tabId: string) => {

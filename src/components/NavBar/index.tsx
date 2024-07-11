@@ -61,12 +61,10 @@ const NAV_SECTIONS = [
 
 const MobileNavBar: FC = () => {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <MobileNavWrapper data-testid="NavBar">
       <NavList>
         {NAV_SECTIONS.map(({ title, role, href, icon }) => {
-          console.log(router.pathname, href);
           const isActive = (router.pathname.split("/")[1] === href?.split("/")[1])
           const isExternalLink = !(href?.split("")[0] === "/");
 

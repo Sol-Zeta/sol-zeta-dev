@@ -12,7 +12,6 @@ export interface TreeItemProps {
 }
 
 const TreeItem: FC<TreeItemProps> = ({ index, title, color, icon, onClick, isActive }: any) => {
-  console.log({color})
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     onClick(index);
