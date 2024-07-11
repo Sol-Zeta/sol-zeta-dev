@@ -12,9 +12,9 @@ import {
   ShortDescription,
   TagsTitle,
   TagsContainer,
-} from "./project.styled";
+} from "../../../styles/pages/project.styled";
 import { ParsedUrlQuery } from "querystring";
-import { fetchPaths, fetchProject } from "./utils";
+import { fetchPaths, fetchProject } from "../../../utils/project";
 import { Icons } from "@/components/Icon";
 import { useRouter } from "next/router";
 import Button, { ButtonVariants } from "@/components/Button";
