@@ -37,7 +37,14 @@ const ProjectCard: FC<ProjectCardProps> = ({
         <Title>{`// ${title}`}</Title>
         <TagsContainer>
           {highlightedTags.map((tag) => {
-            return <ProjectTag icon={tag.icon} id={tag.id} color={tag.color} />;
+            return (
+              <ProjectTag
+                key={tag.id}
+                icon={tag.icon}
+                id={tag.id}
+                color={tag.color}
+              />
+            );
           })}
         </TagsContainer>
       </HeaderContainer>

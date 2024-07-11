@@ -17,6 +17,7 @@ const Projects: React.FC<Props> = () => {
         {PROJECTS_DATA.map(
           ({ id, title, description, image, tags, highlightedTags }) => (
             <ProjectCard
+              key={id}
               id={id}
               title={title}
               description={description}

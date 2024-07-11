@@ -45,10 +45,10 @@ const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
               {value.map((item, index) => {
                 if (index === value.length - 1) return `'${item}'`;
                 return (
-                  <>
+                  <span key={item}>
                     {`'${item}'`}
                     <Comma />
-                  </>
+                  </span>
                 );
               })}
             </Brakets>

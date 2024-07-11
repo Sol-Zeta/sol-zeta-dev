@@ -19,7 +19,7 @@ const SearchInput: FC<SearchInputProps> = ({ placeholder, getSearchTerm }) => {
 
   useEffect(() => {
     getSearchTerm?.(debouncedValue);
-  }, [debouncedValue]);
+  }, [debouncedValue, getSearchTerm]);
 
   return (
     <SearchInputWrapper data-testid="Input">

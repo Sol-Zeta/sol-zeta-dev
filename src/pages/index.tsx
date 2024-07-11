@@ -60,7 +60,7 @@ const Home: React.FC<Props> = () => {
       <ArticleWrapper>
         <ArticleHeader>
           <p>👋 Hi there,</p>
-          <h1>I'm Soledad</h1>
+          <h1>I&apos;m Soledad</h1>
           <h2>{"> Software developer"}</h2>
         </ArticleHeader>
         <Code codeLines={homeSnippet} />

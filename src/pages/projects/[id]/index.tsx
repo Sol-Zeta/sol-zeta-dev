@@ -47,7 +47,7 @@ const Projects: React.FC<PageProps> = ({ data }) => {
         <ShortDescription>{data.description}</ShortDescription>
         <ContentBody>
           {data.fullContent.map(({ image, imageAlt, text }, index) => (
-            <ParagraphContainer className={(index + 1) % 2 === 0 ? "even" : ""}>
+            <ParagraphContainer key={text} className={(index + 1) % 2 === 0 ? "even" : ""}>
               {image ? (
                 <ImageContainer>
                   <Image
@@ -72,7 +72,7 @@ const Projects: React.FC<PageProps> = ({ data }) => {
               .concat(data.tags)
               .concat(data.tags)
               .map((tag) => (
-                <ProjectTag id={tag.id} icon={tag.icon} color={tag.color} />
+                <ProjectTag key={tag.id} id={tag.id} icon={tag.icon} color={tag.color} />
               ))}
           </TagsContainer>
         </ContentBody>

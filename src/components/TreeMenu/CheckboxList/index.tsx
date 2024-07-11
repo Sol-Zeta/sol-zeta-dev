@@ -71,6 +71,7 @@ const CheckboxList: FC<CheckboxListProps> = ({
       <ListContainer>
         {itemsToShow.map((item) => (
           <Checkbox
+            key={item.title}
             checked={item.isChecked}
             label={item.title}
             onChange={(isChecked, label) => handleClick(isChecked, label)}
