@@ -7,9 +7,13 @@ interface TabProps {
 
 export const LayoutWrapper = styled.section`
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   width: 100%;
   height: 100%;
+  @media (min-width: ${getBreakpoint("md")}) {
+    flex-direction: row;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -23,19 +27,28 @@ export const ContentContainer = styled.div`
 `;
 export const LeftContainer = styled.div`
   position: relative;
-  width: 50%;
-  max-width: calc(100% - 350px);
+  width: 100%;
   height: 100%;
   flex-grow: 1;
+  @media (min-width: ${getBreakpoint("md")}) {
+    width: 100%;
+  }
 `;
 export const RightContainer = styled.div`
+display: none;
   width: 40%;
   height: 100%;
+  @media (min-width: ${getBreakpoint("md")}) {
+    display: block;
+  }
 `;
 export const TabsContainer = styled.div`
-  display: flex;
+  display: none;
   width: 100%;
   border-bottom: 1px solid ${getColor("line").primary};
+  @media (min-width: ${getBreakpoint("md")}) {
+    display: flex;
+  }
 `;
 
 export const FileTab = styled.div<TabProps>`

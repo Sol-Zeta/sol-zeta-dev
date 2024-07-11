@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <NavBar />
           <MobileHeader>soledad-pattoglio</MobileHeader>
           <PageWrapper>{children}</PageWrapper>
-          {/* <Footer /> */}
+          <Footer />
         </LayoutWrapper>
         </LayoutContainer>
       </ThemeProvider>

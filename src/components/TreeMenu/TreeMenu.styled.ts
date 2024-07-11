@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderTheme, getBorder, getColor, getFontSize } from "@/styles/utils";
+import { borderTheme, getBorder, getBreakpoint, getColor, getFontSize } from "@/styles/utils";
 
 interface TreeMenuSection {
   isOpen: boolean;
@@ -9,7 +9,9 @@ export const TreeMenuWrapper = styled.div`
   ${borderTheme}
   border-top: none;
   border-left: none;
-  height: 100%;
+  @media (min-width: ${getBreakpoint("md")}) {
+    height: 100%;
+  }
 `;
 
 export const TreeMenuSection = styled.div<TreeMenuSection>`

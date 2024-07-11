@@ -1,4 +1,4 @@
-import { getBorder, getColor } from "@/styles/utils";
+import { getBorder, getBreakpoint, getColor } from "@/styles/utils";
 import styled from "styled-components";
 
 interface TreeItemProps {
@@ -7,8 +7,8 @@ interface TreeItemProps {
 }
 
 export const TreeItemWrapper = styled.div<TreeItemProps>`
-  padding: 16px 24px;
   display: flex;
+  padding: 0 16px 16px;
   gap: 16px;
   cursor: pointer;
   color: ${({ isActive }) =>
@@ -18,5 +18,9 @@ export const TreeItemWrapper = styled.div<TreeItemProps>`
       fill: ${({ color }) => color};
       filter: ${({ isActive }) => `saturate(${isActive ? 1 : "30%"})`};
     }
+  }
+  @media (min-width: ${getBreakpoint("md")}) {
+    height: 100%;
+    padding: 16px 24px;
   }
 `;
