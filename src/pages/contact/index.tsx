@@ -18,11 +18,9 @@ const Contact: React.FC<Props> = ({
   EMAIL_PUBLIC_KEY,
 }) => {
   const formRef = useRef<HTMLFormElement>(null);
-  console.log("env", { EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, EMAIL_PUBLIC_KEY });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(formRef.current);
     if (!formRef?.current) return;
     emailjs
       .sendForm(EMAIL_SERVICE_ID || "", EMAIL_TEMPLATE_ID, formRef.current, {
