@@ -20,7 +20,7 @@ export const TREE_MENU_DATA = [
 export const bioSnippet: CodeLine[] = [
   {
     comment:
-      "bio\n \nMy name is <b>Soledad Pattoglio</b>, but as a 00s child I am, \nI have a nickname and is Sol Zeta. \n \nI'm a Frontend Developer specializing in React, \nwith experience in NextJS, SASS, Redux, GraphQL, and more. \nMy fullstack skills include NodeJS, ExpressJS, and databases like NoSQL and SQL. \nI've worked with startups and large companies, \ntackling projects from scratch and maintaining legacy systems. \nExperienced with CI/CD tools like Jenkins and testing with Cypress. \n \nCurious and a constant learner, I love pair programming \nand collaboration. \nAlways excited to take on new challenges and innovate in the tech space.",
+      "bio\n \nMy name is Soledad Pattoglio. \n \nI'm a Frontend Developer specialized in React, \nwith experience in NextJS, SASS, Redux, GraphQL, and more. \nMy fullstack skills include NodeJS, ExpressJS, and databases like NoSQL and SQL. \nI've worked with startups and large companies, \ntackling projects from scratch and maintaining legacy systems. \nExperienced with CI/CD tools like Jenkins and testing with Cypress. \n \nI am curious and a constant learner, I love pair programming \nand collaboration. \nAlways excited to take on new challenges and innovate in the tech space.",
     isBlock: true,
   },
 ];

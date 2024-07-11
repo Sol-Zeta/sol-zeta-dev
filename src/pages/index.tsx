@@ -65,7 +65,7 @@ const Home: React.FC<Props> = () => {
         </ArticleHeader>
         <Code codeLines={homeSnippet} />
       </ArticleWrapper>
-      <ArticleWrapper>Content here index</ArticleWrapper>
+      <ArticleWrapper></ArticleWrapper>
     </SectionWrapper>
   );
 };

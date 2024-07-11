@@ -123,7 +123,7 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
           ) : null}
           {children}
         </LeftContainer>
-        {!children && <RightContainer>right</RightContainer>}
+        {/* {!children && <RightContainer></RightContainer>} */}
       </ContentContainer>
     </LayoutWrapper>
   );

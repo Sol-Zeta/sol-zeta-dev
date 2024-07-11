@@ -20,7 +20,7 @@ export const TreeItemWrapper = styled.div<TreeItemProps>`
     }
   }
   @media (min-width: ${getBreakpoint("md")}) {
-    height: 100%;
+    /* height: 100%; */
     padding: 16px 24px;
   }
 `;

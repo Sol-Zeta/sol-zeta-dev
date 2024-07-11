@@ -23,6 +23,7 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   @media (min-width: ${getBreakpoint("md")}) {
+    flex-direction: row;
   }
 `;
 export const LeftContainer = styled.div`
@@ -35,7 +36,7 @@ export const LeftContainer = styled.div`
   }
 `;
 export const RightContainer = styled.div`
-display: none;
+  display: none;
   width: 40%;
   height: 100%;
   @media (min-width: ${getBreakpoint("md")}) {

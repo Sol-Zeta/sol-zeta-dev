@@ -6,7 +6,7 @@ export const IdeFileWrapper = styled.div`
   width: 100%;
   max-height: calc(100% - 140px);
   @media (min-width: ${getBreakpoint("md")}) {
-    max-height: calc(100% - 40px);
+    max-height: calc(100% - 50px);
   }
 `;
 

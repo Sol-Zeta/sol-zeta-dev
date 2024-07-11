@@ -63,6 +63,7 @@ export const Background = styled.div`
   height: 100%;
   padding: 80px;
   position: absolute;
+  z-index: 2;
   right: 10%;
   transform: translate(40%, -10%);
   & > div {

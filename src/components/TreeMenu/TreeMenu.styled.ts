@@ -11,6 +11,7 @@ export const TreeMenuWrapper = styled.div`
   border-left: none;
   @media (min-width: ${getBreakpoint("md")}) {
     height: 100%;
+    border-bottom: none;
   }
 `;
 
@@ -38,7 +39,4 @@ export const TreeMenuHeader = styled.div`
   border-bottom: ${getBorder()};
 `;
 export const TreeMenuBody = styled.div`
-    // border-bottom: ${getBorder()};
-    /* max-height: calc(100vh - 268px); */
-    overflow-y: hidden;
 `;

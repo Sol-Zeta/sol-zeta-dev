@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import {
   NavBarWrapper,
   NavItem,
+  NavLink,
   NavList,
   MobileNavWrapper,
 } from "./NavBar.styled";
@@ -76,9 +77,9 @@ const MobileNavBar: FC = () => {
               className={isExternalLink ? '' : 'internalLink'}
             >
               {href ? (
-                <Link href={href} target={isExternalLink ? "_blank" : "_self"}>
+                <NavLink href={href} target={isExternalLink ? "_blank" : "_self"}>
                   <Icon icon={icon} isButton={false}/>
-                </Link>
+                </NavLink>
               ) : null}
             </NavItem>
           );
@@ -99,11 +100,12 @@ const NavBar: FC = () => {
             if (desktop === false) return null;
             return (
               <NavItem
+                onClick={()=> router.push(href || '')}
                 key={title}
                 role={role}
                 isActive={router.pathname.split("/")[1] === href?.split("/")[1]}
               >
-                {href ? <Link href={href}>{title}</Link> : <>{title}</>}
+                {href ? <NavLink href={href}>{title}</NavLink> : <>{title}</>}
               </NavItem>
             );
           })}
