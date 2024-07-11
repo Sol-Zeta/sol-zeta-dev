@@ -21,10 +21,11 @@ const About: React.FC<AboutProps> = () => {
           <CodeTree key={data.id} data={snippet as CodeTreeItemProps[]} />
         ),
     }));
+
   return (
     <IdeLayout
       menuItems={TREE_MENU_DATA as unknown as TreeMenuItem[]}
-      mainContent={getLeftContent()}
+      filesContent={getLeftContent()}
     />
   );
 };

@@ -12,12 +12,12 @@ interface CodeLineProps {
 export const CodeWrapper = styled.div<CodeLineProps>`
   color: ${getColor("code").comments};
   position: relative;
-  margin: ${({codeMargin}) => codeMargin && codeMargin};
-  padding: ${({codePadding}) => codePadding && codePadding};
+  margin: ${({ codeMargin }) => codeMargin && codeMargin};
+  padding: ${({ codePadding }) => codePadding && codePadding};
 `;
 export const CodeLine = styled.div<CodeLineProps>`
-  margin: ${({codeMargin}) => codeMargin && codeMargin};
-  padding: ${({codePadding}) => codePadding && codePadding};
+  margin: ${({ codeMargin }) => codeMargin && codeMargin};
+  padding: ${({ codePadding }) => codePadding && codePadding};
 `;
 export const Key = styled.span`
   color: ${getColor("code").key};
@@ -31,4 +31,22 @@ export const Operator = styled.span`
 export const Value = styled.span<ValueProps>`
   color: ${({ isNumber }) =>
     isNumber ? getColor("code").number : getColor("code").value};
+`;
+
+export const Brakets = styled.span`
+  &::before{
+    color: ${getColor("secondary").blue};  
+    content: '[';
+  }
+  &::after{
+    content: ']';
+    color: ${getColor("secondary").blue};  
+  }
+`;
+
+export const Comma = styled.span`
+  color: ${getColor("secondary").white};
+  &::after {
+    content: ", ";
+  }
 `;

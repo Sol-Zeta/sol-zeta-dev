@@ -13,20 +13,40 @@ interface Props {
 
 const homeSnippet: CodeLine[] = [
   {
-    comment: "Born in BUE and currently based in MAD",
+    codeMargin: "32px 0",
+    variable: "YEARS_OF_EXPERIENCE",
+    value: 4,
   },
+  // {
+  //   codeMargin: "32px 0",
+  //   variable: "FAV_TECH_STACK",
+  //   value: ["ReactJS", "NextJS", "SASS", "GraphQL"],
+  // },
   {
-    comment: "Sol Zeta is my nickname, my real name is Soledad Pattoglio",
-    isBlock: true
+    comment: "Passionate about creating amazing digital experiences",
+    codeMargin: "0 0 16px 0",
   },
   {
     comment:
-      "I love to code, but I also play chess, \ntravel and make some music with my guitar",
+      "I love turning ideas into functional ",
   },
   {
-    codeMargin: '32px 0',
-    variable: "YEARS_OF_EXPERIENCE",
-    value: 4,
+    comment:
+      "products with a strong focus on user experience",
+    codeMargin: "0 0 16px 0",
+  },
+  // {
+  //   comment:
+  //     "When I'm not coding, you'll find me exploring new technologies, savoring a good cup of coffee, or playing chess",
+  //   codeMargin: "0 0 16px 0",
+  // },
+  {
+    comment:
+      "I occasionally teach programming classes",
+    codeMargin: "0 0 16px 0",
+  },
+  {
+    comment: "🚀 Welcome to my digital portfolio!",
   },
 ];
 
@@ -39,8 +59,8 @@ const Home: React.FC<Props> = () => {
       </Background>
       <ArticleWrapper>
         <ArticleHeader>
-          <p>👋 Hi there, I am</p>
-          <h1>Sol Zeta</h1>
+          <p>👋 Hi there,</p>
+          <h1>I'm Soledad</h1>
           <h2>{"> Software developer"}</h2>
         </ArticleHeader>
         <Code codeLines={homeSnippet} />

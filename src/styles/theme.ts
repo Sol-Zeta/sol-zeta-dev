@@ -1,11 +1,11 @@
 import { DefaultTheme } from "styled-components";
 
 export const colors = {
-  gray: "#607B96",
+  gray: "#99A9B7",
   buttonGray: "#1C2B3A",
   buttonLightGray: "#263B50",
   green: "#3C9D93",
-  blue: "#4D5BCE",
+  blue: "#8A99FF",
   black: "#000000",
   white: "#FFFFFF",
   white70: "#FFFFFFB3",

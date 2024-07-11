@@ -23,9 +23,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <LayoutContainer>
-        <NonDesktopMessage>
+        {/* <NonDesktopMessage>
           Please access to the app from a desktop device
-        </NonDesktopMessage>
+        </NonDesktopMessage> */}
         <LayoutWrapper>
           <NavBar />
           <PageWrapper>{children}</PageWrapper>

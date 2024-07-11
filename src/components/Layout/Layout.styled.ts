@@ -38,8 +38,8 @@ export const LayoutWrapper = styled.div`
   overflow: hidden;
   width: 95%;
   border-radius: ${getTheme("borderRadius", "md")};
-  @media (max-width: ${getBreakpoint("md")}) {
-    display: none;
+  @media (min-width: ${getBreakpoint("md")}) {
+
   }
 `;
 

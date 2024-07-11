@@ -18,13 +18,14 @@ export const ArticleWrapper = styled.article`
   justify-content: center;
   &:first-of-type {
     padding: 120px 64px;
+    width: 70%;
   }
 `;
 export const ArticleHeader = styled.div`
-  margin-bottom: 48px;
+  margin-bottom: 8px;
   h1 {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 4px;
+    margin-bottom: 8px;
   }
   h2 {
     color: ${getColor('accent').orange}

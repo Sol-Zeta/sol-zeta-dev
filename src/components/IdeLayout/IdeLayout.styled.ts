@@ -1,4 +1,4 @@
-import { getColor } from "@/styles/utils";
+import { getBreakpoint, getColor } from "@/styles/utils";
 import { styled } from "styled-components";
 
 interface TabProps {
@@ -17,6 +17,9 @@ export const ContentContainer = styled.div`
   max-width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  @media (min-width: ${getBreakpoint("md")}) {
+  }
 `;
 export const LeftContainer = styled.div`
   position: relative;
