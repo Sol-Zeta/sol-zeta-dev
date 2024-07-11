@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+
+const env = (key) => process.env[key];
 const nextConfig = {
   compiler: {
     styledComponents: {
@@ -8,10 +10,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
@@ -19,9 +21,9 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
-    return config
+      use: ["@svgr/webpack"],
+    });
+    return config;
   },
 };
 

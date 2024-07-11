@@ -32,6 +32,9 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  *:focus {
+    outline: 1px solid ${colors.green};
+  }
 
   body {
     font-family: 'Fira', monospace;

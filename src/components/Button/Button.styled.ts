@@ -41,6 +41,11 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     &:hover {
       border-color: ${getColor("secondary").white70};
     }
+    &:focus{
+      border-color: ${getColor("secondary").green};
+      background-color: red;
+      outline: 1px solid red;
+    }
   }
   &.link {
     padding: 0 2px;
