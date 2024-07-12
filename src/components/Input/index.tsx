@@ -30,6 +30,7 @@ export interface InputProps {
   clean?: boolean;
   variant?: keyof typeof InputVariants;
   value?: string;
+  rows?: number;
 }
 
 const Input: FC<InputProps> = ({
@@ -44,6 +45,7 @@ const Input: FC<InputProps> = ({
   clean,
   variant = InputVariants.OUTLINED,
   value,
+  rows = 10
 }) => {
   const [inputValue, setInputValue] = useState<string | undefined>(value);
 
@@ -74,7 +76,7 @@ const Input: FC<InputProps> = ({
             required={required}
             placeholder={placeholder}
             onChange={handleChange}
-            rows={10}
+            rows={rows}
           />
           {clean && inputValue && (
             <Icon icon={Icons.CLOSE} width={16} onClick={handleCleanInput} />

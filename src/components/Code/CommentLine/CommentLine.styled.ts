@@ -11,17 +11,17 @@ display: flex;
 flex-direction: column;
   position: relative;
   white-space: pre-wrap;
-  padding-left: 2em;
-  margin-bottom: 1rem;
+  padding-left: ${({isBlock}) => isBlock ? '0' : '2em'};
+  /* margin-bottom: 1rem; */
   color: ${getColor("code").comments};
-  margin: ${({isBlock}) => isBlock ? '48px 0' : '0'};
+  margin: ${({isBlock}) => isBlock ? '24px 0 16px 0' : '0'};
 `;
 
 export const CommentLimit = styled.span<StyledBlockProps>`
-  position: absolute;
+  /* position: absolute;
   top: ${({isEnd}) => isEnd ? '' : '-20px'};
   bottom: ${({isEnd}) => isEnd ? '-20px' : '-20px'};
-  left: ${({isEnd}) => isEnd ? '0' : '-10px'};
+  left: ${({isEnd}) => isEnd ? '0' : '-10px'}; */
 `;
 
 export const StyledComment = styled.span<CommentLineProps>`
@@ -37,6 +37,6 @@ export const StyledComment = styled.span<CommentLineProps>`
   }
   &.isBlock::before,
   &.isBlock::after {
-    content: "*";
+    content: "";
   }
 `;

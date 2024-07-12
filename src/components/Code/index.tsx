@@ -13,6 +13,7 @@ import CommentLine from "./CommentLine";
 import { useHeight } from "@/context/HeightContext";
 
 export interface CodeLine {
+  id: string;
   comment?: string;
   variable?: string;
   value?: string | number | (string | number)[];
@@ -75,7 +76,7 @@ const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
       {codeLines.map((line: CodeLine) =>
         line.comment ? (
           <CodeLine
-            key={line.comment}
+            key={line.id}
             codeMargin={line.codeMargin}
             codePadding={line.codePadding}
           >
@@ -83,7 +84,7 @@ const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
           </CodeLine>
         ) : (
           <CodeLine
-            key={line.comment}
+            key={line.id}
             codeMargin={line.codeMargin}
             codePadding={line.codePadding}
           >

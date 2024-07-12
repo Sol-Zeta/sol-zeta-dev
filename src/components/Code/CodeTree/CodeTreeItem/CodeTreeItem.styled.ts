@@ -43,7 +43,7 @@ export const Title = styled.h2<React.HTMLAttributes<HTMLHeadingElement>>`
   padding-left: 5px;
   text-transform: capitalize;
   font-size: ${getFontSize("lg")};
-  color: ${getColor("accent").green};
+  color: ${getColor("secondary").green};
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -59,7 +59,7 @@ export const Title = styled.h2<React.HTMLAttributes<HTMLHeadingElement>>`
 
 export const TitleAttached = styled.span`
   font-size: ${getFontSize("md")};
-  color: ${getColor("accent").green};
+  color: ${getColor("accent").orange};
   padding-left: 30px;
   max-width: 20px;
   white-space: nowrap;

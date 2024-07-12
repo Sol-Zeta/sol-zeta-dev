@@ -48,7 +48,7 @@ export const MobileHeader = styled.div`
   padding: 16px 24px;
   width: 100%;
   background-color: ${getColor('background').medium};
-  color: ${getColor('secondary').gray};
+  color: ${getColor('secondary').green};
   @media (min-width: ${getBreakpoint("md")}) {
     display: none;
   }

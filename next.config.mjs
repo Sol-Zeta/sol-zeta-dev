@@ -2,6 +2,11 @@
 
 const env = (key) => process.env[key];
 const nextConfig = {
+  output: 'export',
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY,
+  },
   compiler: {
     styledComponents: {
       ssr: true,

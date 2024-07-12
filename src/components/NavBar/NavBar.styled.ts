@@ -52,7 +52,7 @@ export const NavItem = styled.li<NavItemProps>`
 
   &.internalLink svg {
     fill: ${({ isActive }) =>
-      isActive ? getColor("accent").green : getColor("secondary").gray};
+      isActive ? getColor("secondary").green : getColor("secondary").gray};
   }
   &.internalLink:before {
     content: "";
@@ -62,13 +62,15 @@ export const NavItem = styled.li<NavItemProps>`
     transform: translateX(-50%);
     width: ${({ isActive }) => (isActive ? "100%" : "0")};
     height: 2px;
-    background-color: ${getColor("accent").green};
+    background-color: ${getColor("secondary").green};
     transition: width 0.2s ease;
   }
   @media (min-width: ${getBreakpoint("md")}) {
-    display: block;
+    display: flex;
     flex-grow: 0;
     min-width: ${({ role }) => role === NavItemRoles.MAIN && "300px"};
+    color: ${({ role }) =>
+      role === NavItemRoles.MAIN && `${getColor("secondary").green}`};
     & > a {
       &:before {
         content: "";
@@ -78,7 +80,7 @@ export const NavItem = styled.li<NavItemProps>`
         transform: translateX(-50%);
         width: ${({ isActive }) => (isActive ? "100%" : "0")};
         height: 2px;
-        background-color: ${getColor("accent").green};
+        background-color: ${getColor("secondary").green};
         transition: width 0.2s ease;
       }
     }
@@ -99,6 +101,9 @@ export const NavItem = styled.li<NavItemProps>`
 export const NavLink = styled(Link)`
   display: flex;
   padding: 24px;
+  &:focus {
+    outline: none;
+  }
   @media (min-width: ${getBreakpoint("md")}) {
     display: block;
     flex-grow: 0;

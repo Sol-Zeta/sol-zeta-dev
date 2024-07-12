@@ -1,20 +1,41 @@
 import { styled } from "styled-components";
-import { borderTheme, getBorderRadius, getColor } from "../utils";
+import {
+  getBreakpoint,
+} from "../utils";
 
 export const ContactWrapper = styled.section`
   display: flex;
-  justify-content: center;
-  padding: 64px;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 16px 32px;
+  gap: 32px;
+  width: 100%;
+  & div {
+    align-self: flex-start;
+  }
+  @media (min-width: ${getBreakpoint("sm")}) {
+    max-width: 400px;
+  }
+  @media (min-width: ${getBreakpoint("md")}) {
+    padding: 80px 0;
+    max-width: 450px;
+  }
 `;
 
 export const FormContainer = styled.form`
-  border-radius: ${getBorderRadius()};
-  width: 90%;
-  max-width: 450px;
-  input{
-    margin-bottom: 32px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
   button {
-    margin-top: 48px;
+    align-self: end;
+    margin-top: 16px;
+  }
+  @media (min-width: ${getBreakpoint("md")}) {
+    gap: 32px;
+    button {
+      margin-top: 32px;
+    }
   }
 `;

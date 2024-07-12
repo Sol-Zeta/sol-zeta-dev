@@ -46,7 +46,7 @@ export const ArticleHeader = styled.div`
     font-size: ${getFontSize("xxl")};
   }
   h2 {
-    color: ${getColor("accent").orange};
+    color: ${getColor("secondary").green};
     font-size: ${getFontSize("lg")};
   }
   @media (min-width: ${getBreakpoint("md")}) {
@@ -73,7 +73,7 @@ export const Background = styled.div`
     border-radius: 50%;
     filter: blur(100px);
     opacity: 0.6;
-    background: ${getColor("accent").green};
+    background: ${getColor("secondary").green};
   }
   & > div:last-child {
     background: ${getColor("accent").plum};

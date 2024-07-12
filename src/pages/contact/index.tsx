@@ -1,9 +1,10 @@
-import React, { FormEventHandler, useRef } from "react";
+import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Button, { ButtonVariants } from "@/components/Button";
 import Input, { InputVariants } from "@/components/Input";
 import { ContactWrapper, FormContainer } from "@/styles/pages/contact.styled";
 import { GetStaticProps } from "next";
+import Code from "@/components/Code";
 
 interface Props {
   NEXT_PUBLIC_EMAIL_SERVICE_ID: string;
@@ -42,6 +43,7 @@ const Contact: React.FC<Props> = ({
 
   return (
     <ContactWrapper>
+      <Code codeLines={[{id: 'form-lines', comment: 'Send me a message'}]}/>
       <FormContainer ref={formRef} onSubmit={handleSubmit}>
         <Input
           name="user_name"
@@ -61,9 +63,10 @@ const Contact: React.FC<Props> = ({
           label="_message"
           variant={InputVariants.OUTLINED}
           type="textarea"
+          rows={5}
           required
         />
-        <Button variant={ButtonVariants.SECONDARY} onClick={() => {}}>
+        <Button variant={ButtonVariants.PRIMARY} onClick={() => {}}>
           submit-message
         </Button>
       </FormContainer>
