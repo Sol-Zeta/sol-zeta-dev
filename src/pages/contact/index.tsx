@@ -24,11 +24,11 @@ const Contact: React.FC<Props> = ({
     if (!formRef?.current) return;
     emailjs
       .sendForm(
-        NEXT_PUBLIC_EMAIL_SERVICE_ID || "",
+        NEXT_PUBLIC_EMAIL_SERVICE_ID,
         NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
         formRef.current,
         {
-          publicKey: NEXT_PUBLIC_EMAIL_PUBLIC_KEY || "PUBLIC_KEY",
+          publicKey: NEXT_PUBLIC_EMAIL_PUBLIC_KEY,
         }
       )
       .then(
@@ -43,7 +43,7 @@ const Contact: React.FC<Props> = ({
 
   return (
     <ContactWrapper>
-      <Code codeLines={[{id: 'form-lines', comment: 'Send me a message'}]}/>
+      <Code codeLines={[{ id: "form-lines", comment: "Send me a message" }]} />
       <FormContainer ref={formRef} onSubmit={handleSubmit}>
         <Input
           name="user_name"
@@ -85,9 +85,9 @@ export const getStaticProps: GetStaticProps = () => {
 
   return {
     props: {
-      NEXT_PUBLIC_EMAIL_SERVICE_ID: NEXT_PUBLIC_EMAIL_SERVICE_ID || null,
-      NEXT_PUBLIC_EMAIL_TEMPLATE_ID: NEXT_PUBLIC_EMAIL_TEMPLATE_ID || null,
-      NEXT_PUBLIC_EMAIL_PUBLIC_KEY: NEXT_PUBLIC_EMAIL_PUBLIC_KEY || null,
+      NEXT_PUBLIC_EMAIL_SERVICE_ID: NEXT_PUBLIC_EMAIL_SERVICE_ID || "",
+      NEXT_PUBLIC_EMAIL_TEMPLATE_ID: NEXT_PUBLIC_EMAIL_TEMPLATE_ID || "",
+      NEXT_PUBLIC_EMAIL_PUBLIC_KEY: NEXT_PUBLIC_EMAIL_PUBLIC_KEY || "",
     },
   };
 };
