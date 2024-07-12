@@ -64,6 +64,7 @@ const Projects: React.FC<PageProps> = ({ data }) => {
             </ParagraphContainer>
           ))}
           <Code codeLines={[{
+            id: 'tech-comment',
             comment: "This project has been made with the following technologies:"
           }]} />
           <TagsContainer>

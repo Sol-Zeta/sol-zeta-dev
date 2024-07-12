@@ -13,13 +13,14 @@ const CodeTree: FC<CodeTreeProps> = ({ data }) => {
       <Code
         codeLines={[
           {
+            id: "code-tree",
             comment: "CLICK ON EACH ITEM FOR MORE DETAILS",
             codeMargin: "16px 0 32px 0",
           },
         ]}
       />
-      {data.map((item, index) => (
-        <CodeTreeItem {...item} key={`tree-item-${index}`} />
+      {data.map((item) => (
+        <CodeTreeItem {...item} key={item.id} />
       ))}
     </CodeTreeWrapper>
   );
