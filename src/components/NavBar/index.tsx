@@ -60,7 +60,7 @@ const NAV_SECTIONS = [
   },
 ];
 
-const MobileNavBar: FC = () => {
+export const MobileNavBar: FC = () => {
   const router = useRouter();
   return (
     <MobileNavWrapper data-testid="NavBar">
@@ -93,7 +93,6 @@ const NavBar: FC = () => {
   const router = useRouter();
   return (
     <>
-      <MobileNavBar />
       <NavBarWrapper data-testid="NavBar">
         <NavList>
           {NAV_SECTIONS.map(({ title, role, href, desktop }) => {

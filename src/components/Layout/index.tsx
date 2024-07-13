@@ -4,7 +4,7 @@ import { LayoutContainer, LayoutWrapper, NonDesktopMessage, PageWrapper, MobileH
 import { ThemeProvider } from "styled-components";
 import theme from "@/styles/theme";
 import GlobalStyles from "@/styles/GlobalStyles";
-import NavBar from "@/components/NavBar";
+import NavBar, { MobileNavBar } from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { HeightProvider } from "@/context/HeightContext";
 
@@ -31,6 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <MobileHeader>soledad-pattoglio</MobileHeader>
           <PageWrapper>{children}</PageWrapper>
           <Footer />
+          <MobileNavBar />
         </LayoutWrapper>
         </LayoutContainer>
       </ThemeProvider>

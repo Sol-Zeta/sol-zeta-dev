@@ -11,7 +11,7 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = () => {
-  const getLeftContent = () =>
+  const getLeftContent = () => 
     LEFT_CONTENT.map(({ snippet, ...data }) => ({
       ...data,
       component:

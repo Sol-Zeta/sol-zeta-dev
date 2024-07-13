@@ -17,7 +17,7 @@ export const NavBarWrapper = styled.div`
 
 export const MobileNavWrapper = styled.div`
   width: 100vw;
-  position: absolute;
+  position: relative;
   bottom: 0;
   right: 0;
   z-index: 5;

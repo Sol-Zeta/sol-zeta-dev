@@ -19,7 +19,7 @@ export const LayoutWrapper = styled.section`
 export const ContentContainer = styled.div`
   min-width: 100%;
   max-width: 100%;
-  height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   @media (min-width: ${getBreakpoint("md")}) {

@@ -16,6 +16,7 @@ export const LayoutContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0;
+  overflow: hidden;
   @media (min-width: ${getBreakpoint("md")}) {
     padding: 64px;
   }
@@ -57,7 +58,11 @@ export const MobileHeader = styled.div`
 export const PageWrapper = styled.div`
   width: 100%;
   height: 100%;
+  max-height: calc(100% - 124px);
+  overflow-y: scroll;
+  /* overflow-x: hidden; */
   @media (min-width: ${getBreakpoint("md")}) {
     min-height: calc(100% - 112px);
+    max-height: unset;
   }
 `;
