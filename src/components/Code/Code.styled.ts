@@ -28,9 +28,11 @@ export const Variable = styled.span`
 export const Operator = styled.span`
   color: ${getColor("code").operator};
 `;
-export const Value = styled.span<ValueProps>`
-  color: ${({ isNumber }) =>
-    isNumber ? getColor("code").number : getColor("code").value};
+export const Value = styled.span `
+color: ${getColor('code').value};
+&.isNumber {
+  color: ${getColor('code').number};
+}
 `;
 
 export const Brakets = styled.span`

@@ -20,9 +20,8 @@ const Icon: FC<IconProps> = ({
   return (
     <IconWrapper
       data-testid="Icon"
-      isButton={isButton}
       href={href || "#"}
-      className={className}
+      className={`${className} ${isButton ? 'isButton' : ''}`}
       onClick={onClick}
       width={width}
       height={height}

@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import {
+  HomeItem,
   NavBarWrapper,
   NavItem,
   NavLink,
   NavList,
   MobileNavWrapper,
 } from "./NavBar.styled";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Icon, { Icons } from "../Icon";
 
@@ -22,10 +22,6 @@ export enum NavItemRoles {
 }
 
 const NAV_SECTIONS = [
-  {
-    title: "soledad-pattoglio",
-    role: NavItemRoles.MAIN,
-  },
   {
     title: "_hello",
     href: "/",
@@ -66,19 +62,23 @@ export const MobileNavBar: FC = () => {
     <MobileNavWrapper data-testid="NavBar">
       <NavList>
         {NAV_SECTIONS.map(({ title, role, href, icon }) => {
-          const isActive = (router.pathname.split("/")[1] === href?.split("/")[1])
+          const isActive =
+            router.pathname.split("/")[1] === href?.split("/")[1];
           const isExternalLink = !(href?.split("")[0] === "/");
 
           return (
             <NavItem
               key={title}
-              role={role}
-              isActive={isActive}
-              className={isExternalLink ? '' : 'internalLink'}
+              className={`${isExternalLink ? "" : "internalLink"} ${
+                isActive ? "isActive" : ""
+              } ${role === NavItemRoles.MAIN ? "isMain" : ""}`}
             >
               {href ? (
-                <NavLink href={href} target={isExternalLink ? "_blank" : "_self"}>
-                  <Icon icon={icon} isButton={false}/>
+                <NavLink
+                  href={href}
+                  target={isExternalLink ? "_blank" : "_self"}
+                >
+                  <Icon icon={icon} isButton={false} />
                 </NavLink>
               ) : null}
             </NavItem>
@@ -95,14 +95,21 @@ const NavBar: FC = () => {
     <>
       <NavBarWrapper data-testid="NavBar">
         <NavList>
+          <HomeItem onClick={() => router.push("/")} key={"soledad-pattoglio"}>
+            soledad-pattoglio
+          </HomeItem>
           {NAV_SECTIONS.map(({ title, role, href, desktop }) => {
             if (desktop === false) return null;
+            const isActive =
+              router.pathname.split("/")[1] === href?.split("/")[1];
             return (
               <NavItem
-                onClick={()=> router.push(href || '')}
+                onClick={() => router.push(href || "")}
                 key={title}
                 role={role}
-                isActive={router.pathname.split("/")[1] === href?.split("/")[1]}
+                className={`${isActive ? "isActive" : ""} ${
+                  role === NavItemRoles.MAIN ? "isMain" : ""
+                }`}
               >
                 {href ? <NavLink href={href}>{title}</NavLink> : <>{title}</>}
               </NavItem>

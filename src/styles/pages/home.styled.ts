@@ -2,7 +2,8 @@ import { getBreakpoint, getColor, getFontSize } from "@/styles/utils";
 import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
-  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   height: 100%;
   padding: 0 8%;
   position: relative;
@@ -20,7 +21,7 @@ export const ArticleWrapper = styled.article`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 64px 0;
+  padding: 32px 0;
   &:last-of-type {
     display: none;
   }

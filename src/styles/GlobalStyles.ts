@@ -36,6 +36,19 @@ const GlobalStyles = createGlobalStyle`
     outline: 1px solid ${colors.green};
   }
 
+  html {
+  overflow-y: scroll; /* Ensures the page is scrollable */
+  overscroll-behavior-y: none; /* Prevents elastic scroll on some browsers */
+}
+
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
   body {
     font-family: 'Fira', monospace;
     background-color: ${colors.neutralDark};

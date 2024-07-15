@@ -14,18 +14,18 @@ const CommentLine: FC<CommentLineProps> = ({
   comment = "",
   isBlock = false,
 }) => (
-  <CommentWrapper data-testid="Comment" isBlock={isBlock}>
+  <CommentWrapper data-testid="Comment" className={`${isBlock ? 'isBlock' : ''}`}>
     {isBlock && comment?.length > 1 ? (
       <>
         {/* <CommentLimit>{'/**'}</CommentLimit> */}
         {comment.split("\n").map((line) => (
-          <StyledComment key={line.substring(10)} className={isBlock && "isBlock"} isBlock={isBlock}>
+          <StyledComment key={line.substring(10)} className={isBlock && "isBlock"}>
             {line}
           </StyledComment>
         ))}
       </>
     ) : (
-      <StyledComment isBlock={isBlock}>{comment}</StyledComment>
+      <StyledComment className={`${isBlock ? 'isBlock' : ''}`}>{comment}</StyledComment>
     )}
   </CommentWrapper>
 );

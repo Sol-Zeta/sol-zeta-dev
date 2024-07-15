@@ -91,7 +91,9 @@ const Code: FC<CodeProps> = ({ codeLines, codeMargin, codePadding }) => {
             <Key>{`const${" "}`}</Key>
             <Variable>{`${line.variable} `}</Variable>
             <Operator>{`=${" "}`}</Operator>
-            <Value isNumber={typeof line.value === "number"}>
+            <Value
+              className={`${typeof line.value === "number" ? "isNumber" : ""}`}
+            >
               {parseValue(line.value)}
             </Value>
             <Operator>{`;`}</Operator>

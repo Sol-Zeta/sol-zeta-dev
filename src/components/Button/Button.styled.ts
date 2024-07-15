@@ -4,8 +4,7 @@ import { borderTheme, getBorderRadius, getColor } from "@/styles/utils";
 
 export const ButtonWrapper = styled.button<ButtonProps>`
   display: flex;
-  flex-direction: ${({ iconPosition }) =>
-    iconPosition === IconPositions.AFTER ? "row-reverse" : "row"};
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: fit-content;
@@ -20,6 +19,9 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   }
   &:hover {
     background-color: ${getColor("button").primaryHover};
+  }
+  &.after {
+    flex-direction: row-reverse;
   }
   &.secondary {
     background-color: ${getColor("button").secondary};
@@ -41,7 +43,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     &:hover {
       border-color: ${getColor("secondary").white70};
     }
-    &:focus{
+    &:focus {
       border-color: ${getColor("secondary").green};
       background-color: red;
       outline: 1px solid red;
@@ -61,8 +63,8 @@ export const ButtonWrapper = styled.button<ButtonProps>`
       border-color: ${getColor("button").primaryHover};
       color: ${getColor("button").primaryHover};
       & svg {
-      fill: ${getColor("button").primaryHover};
-    }
+        fill: ${getColor("button").primaryHover};
+      }
     }
   }
 `;

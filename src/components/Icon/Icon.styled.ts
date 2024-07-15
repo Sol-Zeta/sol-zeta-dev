@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { IconButtonProps } from "./utils";
 
 export const IconWrapper = styled.div<IconButtonProps>`
-  cursor: ${({ isButton }) => isButton && "pointer"};
+  &.isButton {
+    cursor: pointer;
+  }
   svg {
     width: ${({ width }) => `${width}px`};
     height: ${({ height }) => `${height}px`};

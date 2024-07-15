@@ -58,10 +58,11 @@ export const MobileHeader = styled.div`
 export const PageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  max-height: calc(100% - 124px);
+  max-height: calc(100% - 105px);
   overflow-y: scroll;
   /* overflow-x: hidden; */
   @media (min-width: ${getBreakpoint("md")}) {
+    overflow: hidden;
     min-height: calc(100% - 112px);
     max-height: unset;
   }

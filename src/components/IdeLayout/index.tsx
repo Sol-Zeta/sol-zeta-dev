@@ -98,8 +98,8 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
                 {selectedFiles.map((tabId: string) => (
                   <FileTab
                     onClick={() => setSelectedTab(tabId)}
-                    isActive={selectedTab === tabId}
                     key={tabId}
+                    className={selectedTab === tabId ? 'isActive' : ''}
                   >
                     {filesContent.find((item) => item.id === tabId)?.title}
                     <Icon

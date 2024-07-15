@@ -60,15 +60,15 @@ const Input: FC<InputProps> = ({
   }, [inputValue]);
 
   return (
-    <InputWrapper data-testid="Input" className={className} variant={variant}>
-      <Label htmlFor="name" variant={variant}>
+    <InputWrapper data-testid="Input" className={`${className} ${variant.toLowerCase()}`}>
+      <Label htmlFor="name" className={variant.toLowerCase()}>
         {label}
       </Label>
       {type === "textarea" ? (
         <InputContainer>
           {icon && <Icon icon={Icons.SEARCH} isButton={false} />}
           <StyledTextarea
-            variant={variant}
+            className={variant.toLowerCase()}
             value={inputValue}
             type={type || "text"}
             id={name}
@@ -86,7 +86,7 @@ const Input: FC<InputProps> = ({
         <InputContainer>
           {icon && <Icon icon={Icons.SEARCH} isButton={false} />}
           <StyledInput
-            variant={variant}
+            className={variant.toLowerCase()}
             value={inputValue}
             type={type || "text"}
             id={name}

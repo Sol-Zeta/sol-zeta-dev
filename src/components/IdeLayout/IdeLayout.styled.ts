@@ -60,6 +60,8 @@ export const FileTab = styled.div<TabProps>`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  color: ${({ isActive }) =>
-    isActive ? getColor("secondary").white : getColor("secondary").gray};
+  color: ${getColor("secondary").gray};
+  &.isActive {
+    color: ${getColor("secondary").white};
+  }
 `;

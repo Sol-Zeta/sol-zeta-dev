@@ -28,10 +28,8 @@ const Button: React.FC<ButtonProps> = ({ icon, iconPosition = IconPositions.BEFO
 
   return (
     <ButtonWrapper 
-      onClick={onClick} 
-      iconPosition={iconPosition} 
-      variant={variant}
-      className={variant.toLowerCase()}
+      onClick={onClick}
+      className={`${variant.toLowerCase()} ${iconPosition.toLocaleLowerCase()}`}
     >
       {icon ? (
         <Icon icon={icon} />

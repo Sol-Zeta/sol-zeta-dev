@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { getBreakpoint, getColor } from "@/styles/utils";
-import { NavItemProps, NavItemRoles } from ".";
 import Link from "next/link";
 
 export const NavBarWrapper = styled.div`
@@ -17,12 +16,25 @@ export const NavBarWrapper = styled.div`
 
 export const MobileNavWrapper = styled.div`
   width: 100vw;
+  max-height: 64px;
   position: relative;
   bottom: 0;
   right: 0;
-  z-index: 5;
+  z-index: 100;
   border-top: 1px solid ${getColor("line").primary};
   background-color: ${getColor("background").medium};
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px; /* Ajusta esta altura según sea necesario */
+    -webkit-box-shadow: 0px 8px 11px 12px rgba(67, 217, 173, 0.42);
+    -moz-box-shadow: 0px 8px 11px 12px rgba(67, 217, 173, 0.42);
+    box-shadow: 0px 8px 11px 12px rgba(67, 217, 173, 0.42);
+    z-index: -1;
+  }
   @media (min-width: ${getBreakpoint("md")}) {
     display: none;
   }
@@ -33,44 +45,64 @@ export const NavList = styled.ul`
   justify-content: center;
   align-items: center;
   width: 100%;
+
   @media (min-width: ${getBreakpoint("md")}) {
     min-width: 100%;
     justify-content: start;
   }
 `;
-
-export const NavItem = styled.li<NavItemProps>`
-  display: ${({ role }) => (role === NavItemRoles.MAIN ? "none" : "flex")};
+export const HomeItem = styled.li`
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  text-align: center;
+  color: ${getColor("secondary").green};
+  border-right: 1px solid ${getColor("line").primary};
+  padding: 16px 32px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${getColor("background").lighter};
+  }
+`;
+export const NavItem = styled.li`
+  display: flex;
   justify-content: center;
   list-style: none;
-  border-right: 1px solid ${getColor("line").primary};
+  /* border-right: 1px solid ${getColor("line").primary}; */
   position: relative;
-  color: ${({ isActive }) =>
-    isActive ? getColor("text").primary : getColor("secondary").gray};
+  color: ${getColor("secondary").gray};
+  &.isActive {
+    color: ${getColor("text").primary};
+  }
+  &.isMain {
+    display: none;
+  }
   flex: 1;
   cursor: pointer;
 
   &.internalLink svg {
-    fill: ${({ isActive }) =>
-      isActive ? getColor("secondary").green : getColor("secondary").gray};
+    fill: ${getColor("secondary").gray};
   }
-  &.internalLink:before {
+  &.internalLink.isActive svg {
+    fill: ${getColor("secondary").green};
+  }
+  /* &.internalLink::before {
     content: "";
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: ${({ isActive }) => (isActive ? "100%" : "0")};
+    width: 0;
     height: 2px;
     background-color: ${getColor("secondary").green};
     transition: width 0.2s ease;
   }
+  &.internalLink.isActive::before {
+    width: 100%;
+  } */
   @media (min-width: ${getBreakpoint("md")}) {
     display: flex;
     flex-grow: 0;
-    min-width: ${({ role }) => role === NavItemRoles.MAIN && "300px"};
-    color: ${({ role }) =>
-      role === NavItemRoles.MAIN && `${getColor("secondary").green}`};
     & > a {
       &:before {
         content: "";
@@ -78,10 +110,15 @@ export const NavItem = styled.li<NavItemProps>`
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: ${({ isActive }) => (isActive ? "100%" : "0")};
+        width: 0;
         height: 2px;
         background-color: ${getColor("secondary").green};
         transition: width 0.2s ease;
+      }
+    }
+    &.isActive > a {
+      &::before {
+        width: 100%;
       }
     }
     &:hover {
@@ -100,7 +137,7 @@ export const NavItem = styled.li<NavItemProps>`
 
 export const NavLink = styled(Link)`
   display: flex;
-  padding: 24px;
+  padding: 16px 0 35px 0;
   &:focus {
     outline: none;
   }
