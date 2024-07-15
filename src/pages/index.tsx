@@ -13,7 +13,7 @@ interface Props {
 
 const homeSnippet: CodeLine[] = [
   {
-    id: 'experience',
+    id: "experience",
     codeMargin: "32px 0",
     variable: "YEARS_OF_EXPERIENCE",
     value: 4,
@@ -24,19 +24,17 @@ const homeSnippet: CodeLine[] = [
   //   value: ["ReactJS", "NextJS", "SASS", "GraphQL"],
   // },
   {
-    id: 'home-1',
+    id: "home-1",
     comment: "Passionate about creating amazing digital experiences",
     codeMargin: "0 0 16px 0",
   },
   {
-    id: 'home-2',
-    comment:
-      "I love turning ideas into functional ",
+    id: "home-2",
+    comment: "I love turning ideas into functional ",
   },
   {
-    id: 'home-3',
-    comment:
-      "products with a strong focus on user experience",
+    id: "home-3",
+    comment: "products with a strong focus on user experience",
     codeMargin: "0 0 16px 0",
   },
   // {
@@ -46,13 +44,13 @@ const homeSnippet: CodeLine[] = [
   //   codeMargin: "0 0 16px 0",
   // },
   {
-    id: 'home-5',
+    id: "home-5",
     comment:
       "I enjoy sharing knowledge, \nwhich is why sometimes I teach programming classes",
     codeMargin: "0 0 16px 0",
   },
   {
-    id: 'home-6',
+    id: "home-6",
     comment: "🚀 Welcome to my portfolio!",
   },
 ];

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import {
   LayoutContainer,
   LayoutWrapper,
-  NonDesktopMessage,
   PageWrapper,
   MobileHeader,
 } from "./Layout.styled";
@@ -58,9 +57,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <ModalProvider>
           <GlobalStyles />
           <LayoutContainer>
-            {/* <NonDesktopMessage>
-          Please access to the app from a desktop device
-        </NonDesktopMessage> */}
             <LayoutWrapper>
               <NavBar />
               <MobileHeader>soledad-pattoglio</MobileHeader>

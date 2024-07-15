@@ -22,13 +22,6 @@ export const LayoutContainer = styled.div`
   }
 `;
 
-export const NonDesktopMessage = styled.div`
-  display: none;
-  @media (max-width: ${getBreakpoint("md")}) {
-    display: block;
-  }
-`;
-
 export const LayoutWrapper = styled.div`
   ${flexTheme};
   ${borderTheme};
