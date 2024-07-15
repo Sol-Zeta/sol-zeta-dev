@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Section,
   TreeContainer,
+  TitleBullet,
   Title,
   Subtitle,
   List,
@@ -58,14 +59,19 @@ const renderNodes = (
     }
     if (key === "title") {
       titleNode.push(
-        <TitleContainer>
-          <Title
-            className={`${isOpen && "open"}`}
-            onClick={() => handleTitleClick(data.id, openNodes, setOpenNodes)}
-          >
-            {`${value} ${data.hasOwnProperty(AT) ? `@ ${data[AT]}` : ""}`}
-          </Title>
-          <TitleAttached>{data[data[ATTACH_TO_TITLE_KEY]]}</TitleAttached>
+        <TitleContainer
+          onClick={() => handleTitleClick(data.id, openNodes, setOpenNodes)}
+        >
+          <TitleBullet>{`${isOpen ? "_" : "+"}`}</TitleBullet>
+          <div>
+            <Title className={`${isOpen && "open"}`}>
+              {`${value}`}
+              {data.hasOwnProperty(AT) ? <span>{`@ ${data[AT]}`}</span> : null}
+            </Title>
+            <TitleAttached className={`${isOpen && "open"}`}>
+              {data[data[ATTACH_TO_TITLE_KEY]]}
+            </TitleAttached>
+          </div>
         </TitleContainer>
       );
       if (!isOpen) break;

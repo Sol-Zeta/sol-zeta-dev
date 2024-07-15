@@ -109,9 +109,9 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
                   </FileTab>
                 ))}
               </TabsContainer>
-              {selectedFiles.length || showLineNumber ? (
+              {/* {selectedFiles.length || showLineNumber ? (
                 <LineNumbers height={height} />
-              ) : null}
+              ) : null} */}
               {selectedFiles.length ? (
                 <IdeFile
                   {...filesContent.find((item) => item.id === selectedTab)}

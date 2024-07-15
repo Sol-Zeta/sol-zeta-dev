@@ -35,35 +35,42 @@ export const Section = styled.div<React.HTMLAttributes<HTMLDivElement>>`
 
 export const TitleContainer = styled.div<React.HTMLAttributes<HTMLDivElement>>`
   max-width: 90%;
+  display: flex;
+  cursor: pointer;
 `;
 
+export const TitleBullet = styled.span`
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: ${getFontSize("lg")};
+  color: ${getColor("secondary").green};
+`;
 
 export const Title = styled.h2<React.HTMLAttributes<HTMLHeadingElement>>`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
   padding-left: 5px;
   text-transform: capitalize;
   font-size: ${getFontSize("lg")};
   color: ${getColor("secondary").green};
   max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  cursor: pointer;
-  &::before {
-    content: "+ ";
-  }
-  &.open::before {
-    content: "_ ";
+  & span {
+    font-size: ${getFontSize("md")};
+    color: ${getColor("accent").plum};
   }
 `;
 
 export const TitleAttached = styled.span`
   font-size: ${getFontSize("md")};
-  color: ${getColor("accent").orange};
+  color: ${getColor("accent").green};
   padding-left: 30px;
   max-width: 20px;
   white-space: nowrap;
   text-overflow: ellipsis;
+  &.open {
+    color: ${getColor("secondary").green};
+  }
   &::before {
     content: "└- ";
     ${lineTreeColor};

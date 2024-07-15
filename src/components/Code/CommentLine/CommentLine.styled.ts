@@ -12,11 +12,10 @@ export const CommentWrapper = styled.div`
   position: relative;
   white-space: pre-wrap;
   color: ${getColor("code").comments};
-  /* margin-bottom: 1rem; */
   padding-left: 2em;
   margin: 0;
   &.isBlock {
-    padding-left: "0";
+    padding-left: 0;
     margin: "24px 0 16px 0";
   }
 `;

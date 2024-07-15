@@ -23,6 +23,7 @@ export const bioSnippet: CodeLine[] = [
     comment:
       "bio\n\n\nMy name is Soledad Pattoglio. \n \nI'm a Frontend Developer specialized in React, \nwith experience in NextJS, SASS, Redux, GraphQL, and more. \nMy fullstack skills include NodeJS, ExpressJS, and databases like NoSQL and SQL. \n \nI've worked with startups and large companies, \ntackling projects from scratch and maintaining legacy systems. \nExperienced with CI/CD tools like Jenkins and testing with Cypress. \n \nI am curious and a constant learner, I love pair programming \nand collaboration. \n \nAlways excited to take on new challenges and innovate in the tech space.",
     isBlock: true,
+    codeMargin: '16px 0 0 0'
   },
 ];
 
@@ -32,8 +33,8 @@ export const jobSnippet: CodeTreeItemProps[] = [
     [ATTACH_TO_TITLE_KEY]: "date",
     date: "2022 - 2024",
     title: "Frontend Web Developer",
-    company: "Ofertia - Mediapost Spain",
-    [AT]: "Ofertia - Mediapost Spain",
+    company: "Ofertia! - Mediapost Spain",
+    [AT]: "Ofertia! - Mediapost Spain",
     role: "Frontend Web Developer",
     responsibilities: [
       "Develop new backoffice app",
