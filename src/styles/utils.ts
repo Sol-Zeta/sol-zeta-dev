@@ -1,5 +1,5 @@
 //@ts-ignore
-import { Colors, DefaultTheme, ThemeProps, css } from "styled-components";
+import { css } from "styled-components";
 import theme from "./theme";
 
 export const codeStyle = css`

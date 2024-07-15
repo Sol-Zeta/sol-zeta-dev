@@ -14,6 +14,7 @@ import NavBar, { MobileNavBar } from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { HeightProvider } from "@/context/HeightContext";
 import { useEffect } from "react";
+import { ModalProvider } from "@/context/ModalContext";
 
 export const metadata: Metadata = {
   title: "Sol Zeta Dev",
@@ -54,19 +55,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <HeightProvider>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <LayoutContainer>
-          {/* <NonDesktopMessage>
+        <ModalProvider>
+          <GlobalStyles />
+          <LayoutContainer>
+            {/* <NonDesktopMessage>
           Please access to the app from a desktop device
         </NonDesktopMessage> */}
-          <LayoutWrapper>
-            <NavBar />
-            <MobileHeader>soledad-pattoglio</MobileHeader>
-            <PageWrapper>{children}</PageWrapper>
-            <Footer />
-            <MobileNavBar />
-          </LayoutWrapper>
-        </LayoutContainer>
+            <LayoutWrapper>
+              <NavBar />
+              <MobileHeader>soledad-pattoglio</MobileHeader>
+              <PageWrapper>{children}</PageWrapper>
+              <Footer />
+              <MobileNavBar />
+            </LayoutWrapper>
+          </LayoutContainer>
+        </ModalProvider>
       </ThemeProvider>
     </HeightProvider>
   );

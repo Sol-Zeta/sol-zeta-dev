@@ -17,6 +17,7 @@ import Css from "@/assets/icons/css3.svg";
 import Cypress from "@/assets/icons/cypress.svg";
 import Directory from "@/assets/icons/directory.svg";
 import Docker from "@/assets/icons/docker.svg";
+import Error from "@/assets/icons/error-warning-fill.svg";
 import Expo from "@/assets/icons/expo.svg";
 import Express from "@/assets/icons/express.svg";
 import Figma from "@/assets/icons/figma.svg";
@@ -35,6 +36,7 @@ import Jest from "@/assets/icons/jest.svg";
 import Jira from "@/assets/icons/jira.svg";
 import Kubernetes from "@/assets/icons/kubernetes.svg";
 import Linkedin from "@/assets/icons/linkedin.svg";
+import MessageSent from "@/assets/icons/send-plane-fill.svg";
 import MongoDb from "@/assets/icons/mongodb.svg";
 import NextJs from "@/assets/icons/nextjs.svg";
 import NodeJs from "@/assets/icons/nodejs.svg";
@@ -90,6 +92,7 @@ export enum Icons {
   CYPRESS = "CYPRESS",
   DIRECTORY = "DIRECTORY",
   DOCKER = "DOCKER",
+  ERROR = "ERROR",
   EXPO = "EXPO",
   EXPRESS = "EXPRESS",
   FIGMA = "FIGMA",
@@ -108,6 +111,7 @@ export enum Icons {
   JIRA = "JIRA",
   KUBERNETES = "KUBERNETES",
   LINKEDIN = "LINKEDIN",
+  MESSAGE = "MESSAGE",
   MONGO = "MONGO",
   NEXTJS = "NEXTJS",
   NODEJS = "NODEJS",
@@ -151,6 +155,7 @@ export const IconChildren = {
   [Icons.CYPRESS]: <Cypress />,
   [Icons.DIRECTORY]: <Directory />,
   [Icons.DOCKER]: <Docker />,
+  [Icons.ERROR]: <Error />,
   [Icons.EXPO]: <Expo />,
   [Icons.EXPRESS]: <Express />,
   [Icons.FIGMA]: <Figma />,
@@ -169,6 +174,7 @@ export const IconChildren = {
   [Icons.JIRA]: <Jira />,
   [Icons.KUBERNETES]: <Kubernetes />,
   [Icons.LINKEDIN]: <Linkedin />,
+  [Icons.MESSAGE]: <MessageSent />,
   [Icons.MONGO]: <MongoDb />,
   [Icons.NEXTJS]: <NextJs />,
   [Icons.NODEJS]: <NodeJs />,
