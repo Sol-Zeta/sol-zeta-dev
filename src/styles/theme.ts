@@ -60,7 +60,7 @@ const theme: DefaultTheme = {
     },
     text: {
       primary: colors.white,
-      secondary: colors.blue,
+      secondary: colors.black,
       gray: colors.buttonLightGray
     },
     code: {

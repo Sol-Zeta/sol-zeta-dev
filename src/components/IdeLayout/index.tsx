@@ -80,7 +80,7 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
   }, [selectedTab]);
 
   const handleMenuItem = (item: TreeActiveItem) => setSelectedMenuItem(item);
-
+  console.log(selectedFiles.length);
   return (
     <LayoutWrapper>
       <TreeMenu
@@ -91,36 +91,33 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
       />
       <ContentContainer>
         <LeftContainer>
-          {selectedFiles.length ? (
-            <>
-              {" "}
-              <TabsContainer>
-                {selectedFiles.map((tabId: string) => (
-                  <FileTab
-                    onClick={() => setSelectedTab(tabId)}
-                    key={tabId}
-                    className={selectedTab === tabId ? 'isActive' : ''}
-                  >
-                    {filesContent.find((item) => item.id === tabId)?.title}
-                    <Icon
-                      icon={Icons.CLOSE}
-                      onClick={(e) => handleCloseTab(e, tabId)}
-                    />
-                  </FileTab>
-                ))}
-              </TabsContainer>
-              {/* {selectedFiles.length || showLineNumber ? (
+          {selectedFiles.length > 0 ? (
+            <TabsContainer>
+              {selectedFiles.map((tabId: string) => (
+                <FileTab
+                  onClick={() => setSelectedTab(tabId)}
+                  key={tabId}
+                  className={selectedTab === tabId ? "isActive" : ""}
+                >
+                  {filesContent.find((item) => item.id === tabId)?.title}
+                  <Icon
+                    icon={Icons.CLOSE}
+                    onClick={(e) => handleCloseTab(e, tabId)}
+                  />
+                </FileTab>
+              ))}
+            </TabsContainer>
+          ) : null}
+          {/* {selectedFiles.length || showLineNumber ? (
                 <LineNumbers height={height} />
               ) : null} */}
-              {selectedFiles.length ? (
-                <IdeFile
-                  {...filesContent.find((item) => item.id === selectedTab)}
-                />
-              ) : (
-                <NoFileSelected />
-              )}
-            </>
-          ) : null}
+          {selectedFiles.length ? (
+            <IdeFile
+              {...filesContent.find((item) => item.id === selectedTab)}
+            />
+          ) : (
+            <NoFileSelected />
+          )}
           {children}
         </LeftContainer>
         {/* {!children && <RightContainer></RightContainer>} */}

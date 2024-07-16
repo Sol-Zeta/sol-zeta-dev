@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import { ButtonProps, IconPositions } from ".";
-import { borderTheme, getBorderRadius, getColor } from "@/styles/utils";
+import { ButtonProps } from ".";
+import { getBorderRadius, getColor } from "@/styles/utils";
 
 export const ButtonWrapper = styled.button<ButtonProps>`
   display: flex;
@@ -9,6 +9,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   align-items: center;
   width: fit-content;
   background-color: ${getColor("button").primary};
+  color: ${getColor("text").secondary};
   font-family: inherit;
   padding: 12px 16px;
   border-radius: ${getBorderRadius()};
@@ -25,7 +26,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   }
   &.secondary {
     background-color: ${getColor("button").secondary};
-    color: ${getColor("secondary").white};
+    color: ${getColor("text").primary};
     & svg {
       fill: ${getColor("secondary").white};
     }

@@ -6,7 +6,7 @@ export const NoFileSelectedWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
+  width: calc(100% - 350px);
   height: 100%;
 `;
 
@@ -26,7 +26,7 @@ export const MessageContainer = styled.div`
   line-height: 1.5rem;
   .directoryIcon {
     svg {
-      fill: ${getColor("accent").salmon};
+      fill: ${getColor("accent").plum};
     }
   }
 `;

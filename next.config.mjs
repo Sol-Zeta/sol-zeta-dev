@@ -2,7 +2,6 @@
 
 const env = (key) => process.env[key];
 const nextConfig = {
-  output: 'export',
   env: {
     NEXT_PUBLIC_EMAIL_SERVICE_ID: env("NEXT_PUBLIC_EMAIL_SERVICE_ID"),
     NEXT_PUBLIC_EMAIL_TEMPLATE_ID: env("NEXT_PUBLIC_EMAIL_TEMPLATE_ID"),
