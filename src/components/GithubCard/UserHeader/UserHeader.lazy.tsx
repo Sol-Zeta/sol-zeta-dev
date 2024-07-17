@@ -4,7 +4,7 @@ const LazyUserHeader = lazy(() => import('.'));
 
 const UserHeader = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; }) => (
   <Suspense fallback={null}>
-    <LazyUserHeader {...props} />
+    {/* <LazyUserHeader {...props} /> */}
   </Suspense>
 );
 
