@@ -6,9 +6,17 @@ import {
   SectionWrapper,
 } from "@/styles/pages/home.styled";
 import Code, { CodeLine } from "@/components/Code";
+import GistList, { GistListProps } from "@/components/GistList";
+import { getGist, getGists, getMyGithubUser } from "@/http/services/github";
+import { GetServerSideProps } from "next";
+import { Gist, Owner } from "@/types/github";
+import { GistCard } from "@/components/GithubCard";
 
-interface Props {
-  exampleProp?: string;
+interface HomeProps {
+  data: {
+    user?: Owner;
+    gists?: GistCard[];
+  };
 }
 
 const homeSnippet: CodeLine[] = [
@@ -55,7 +63,7 @@ const homeSnippet: CodeLine[] = [
   },
 ];
 
-const Home: React.FC<Props> = () => {
+const Home: React.FC<HomeProps> = ({ data }) => {
   return (
     <SectionWrapper>
       <Background>
@@ -70,9 +78,64 @@ const Home: React.FC<Props> = () => {
         </ArticleHeader>
         <Code codeLines={homeSnippet} />
       </ArticleWrapper>
-      <ArticleWrapper></ArticleWrapper>
+      <ArticleWrapper>
+        {data.user && data.gists && (
+          <GistList user={data.user} gists={data.gists} />
+        )}
+      </ArticleWrapper>
     </SectionWrapper>
   );
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async (
+  context
+) => {
+  const user = await getMyGithubUser();
+  const raw_gists = await getGists();
+  const gists: GistCard[] = [];
+
+  const gists_urls_promises = [];
+  const gists_dates = [];
+
+  if (!raw_gists?.length) {
+    return {
+      props: {
+        data: {},
+      },
+    };
+  }
+
+  for (let i = 0; i < raw_gists.length; i++) {
+    const filesObject = raw_gists[i].files;
+    for (const key in filesObject) {
+      if (Object.prototype.hasOwnProperty.call(filesObject, key)) {
+        if(!key.includes('fragment')) continue;
+        const gist: GistCard = {
+          description: raw_gists[i].description,
+          url: raw_gists[i].html_url,
+          creationDate: raw_gists[i].created_at,
+          code: filesObject[key].raw_url
+        };
+        gists.push(gist);
+      }
+    }
+  }
+
+  const gistsCode = await Promise.all(gists.map(gist => getGist(gist.code)))
+
+  for (let i = 0; i < gists.length; i++) {
+    gists[i].code = gistsCode[i]
+  }
+  console.log('----------------------', raw_gists[0])
+
+  return {
+    props: {
+      data: {
+        user,
+        gists,
+      },
+    },
+  };
+};

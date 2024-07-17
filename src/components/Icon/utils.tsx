@@ -18,6 +18,7 @@ import Cypress from "@/assets/icons/cypress.svg";
 import Directory from "@/assets/icons/directory.svg";
 import Docker from "@/assets/icons/docker.svg";
 import Error from "@/assets/icons/error-warning-fill.svg";
+import ExternalLink from "@/assets/icons/external-link.svg";
 import Expo from "@/assets/icons/expo.svg";
 import Express from "@/assets/icons/express.svg";
 import Figma from "@/assets/icons/figma.svg";
@@ -93,6 +94,7 @@ export enum Icons {
   DIRECTORY = "DIRECTORY",
   DOCKER = "DOCKER",
   ERROR = "ERROR",
+  EXTERNAL_LINK = "EXTERNAL_LINK",
   EXPO = "EXPO",
   EXPRESS = "EXPRESS",
   FIGMA = "FIGMA",
@@ -157,6 +159,7 @@ export const IconChildren = {
   [Icons.DOCKER]: <Docker />,
   [Icons.ERROR]: <Error />,
   [Icons.EXPO]: <Expo />,
+  [Icons.EXTERNAL_LINK]: <ExternalLink />,
   [Icons.EXPRESS]: <Express />,
   [Icons.FIGMA]: <Figma />,
   [Icons.FIREBASE]: <Firebase />,

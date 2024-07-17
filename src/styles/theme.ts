@@ -19,7 +19,7 @@ export const colors = {
   neutralMedium: "#011221",
   neutralLight: "#011627",
   neutralLighter: "#1E2D3D",
-  yellow: "#FFBF00",
+  yellow: "#F8EA91",
   lightBlue: "#61DBFB",
 };
 
@@ -69,7 +69,8 @@ const theme: DefaultTheme = {
       variable: colors.plum,
       value: colors.salmon,
       number: colors.greenCode,
-      operator: colors.white
+      operator: colors.white, 
+      function: colors.yellow
     },
     icon: colors.gray,
     line: {

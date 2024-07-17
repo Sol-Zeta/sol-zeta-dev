@@ -80,7 +80,6 @@ export const IdeLayout: React.FC<IdeLayoutProps> = ({
   }, [selectedTab]);
 
   const handleMenuItem = (item: TreeActiveItem) => setSelectedMenuItem(item);
-  console.log(selectedFiles.length);
   return (
     <LayoutWrapper>
       <TreeMenu

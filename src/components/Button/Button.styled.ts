@@ -47,7 +47,6 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     &:focus {
       border-color: ${getColor("secondary").green};
       background-color: red;
-      outline: 1px solid red;
     }
   }
   &.link {
@@ -65,6 +64,23 @@ export const ButtonWrapper = styled.button<ButtonProps>`
       color: ${getColor("button").primaryHover};
       & svg {
         fill: ${getColor("button").primaryHover};
+      }
+    }
+  }
+  &.soft {
+    padding: 0 2px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: ${getColor("secondary").gray};
+    & svg {
+      fill: ${getColor("secondary").gray};
+    }
+    &:hover {
+      border-color: ${getColor("secondary").white};
+      color: ${getColor("secondary").white};
+      & svg {
+        fill: ${getColor("secondary").white};
       }
     }
   }

@@ -96,6 +96,12 @@ html, body, #__next {
   a {
     text-decoration: none;
     color: inherit;
+    &:active {
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
   button {

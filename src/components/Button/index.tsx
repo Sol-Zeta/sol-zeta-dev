@@ -8,6 +8,7 @@ export enum ButtonVariants {
   OUTLINED = 'OUTLINED',
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
+  SOFT = 'SOFT',
 }
 
 export enum IconPositions {

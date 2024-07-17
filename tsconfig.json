@@ -22,7 +22,9 @@
       "@/assets/*": ["./src/assets/*"],
       "@/components/*": ["./src/components/*"],
       "@/context/*": ["./src/context/*"],
+      "@/http/*": ["./src/http/*"],
       "@/styles/*": ["./src/styles/*"],
+      "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"]
     }
   },
