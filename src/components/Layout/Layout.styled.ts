@@ -6,7 +6,9 @@ import {
   getBreakpoint,
   getColor,
   getTheme,
+  getFontSize,
 } from "@/styles/utils";
+import Link from "next/link";
 
 const background = getColor("background");
 
@@ -41,10 +43,27 @@ export const MobileHeader = styled.div`
   ${borderTheme}
   padding: 16px 24px;
   width: 100%;
-  background-color: ${getColor('background').medium};
-  color: ${getColor('secondary').green};
+  background-color: ${getColor("background").medium};
+  color: ${getColor("secondary").green};
+  display: flex;
+  justify-content: space-between;
+  h2 {
+    font-size: ${getFontSize()};
+  }
+  div {
+    display: flex;
+    gap: 24px;
+  }
   @media (min-width: ${getBreakpoint("md")}) {
     display: none;
+  }
+`;
+
+export const MobileHeaderLinks = styled(Link)`
+  display: flex;
+  /* padding: 16px 0 35px 0; */
+  &:focus {
+    outline: none;
   }
 `;
 

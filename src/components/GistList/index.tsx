@@ -1,26 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import GithubCard, { GistCard } from "@/components/GithubCard";
-import { GistListWrapper } from "./GistList.styled";
+import { GistListWrapper, Wrapper } from "./GistList.styled";
 import { getGistsData, GistData } from "./utils";
 import Loader from "@/components/Loader";
 
 export interface GistListProps {
+  animate?: boolean;
   showLoader?: boolean;
 }
 
-const GistList: React.FC<GistListProps> = ({ showLoader = true }) => {
+const GistList: React.FC<GistListProps> = ({ animate = true, showLoader = true }) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [gistsData, setGistsData] = useState<GistData | undefined>(
-    undefined
-  );
+  const [gistsData, setGistsData] = useState<GistData | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
+  const [showList, setShowList] = useState(false);
 
   const getData = async () => {
     try {
       setIsLoading(true);
       const data = await getGistsData();
       setGistsData(data);
+      console.log({ data });
       setTimeout(() => {
         setIsLoading(false);
       }, 2000);
@@ -35,6 +36,15 @@ const GistList: React.FC<GistListProps> = ({ showLoader = true }) => {
   }, []);
 
   useEffect(() => {
+    if (isLoading) {
+      setShowList(false);
+      return;
+    }
+    setShowList(true);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if(!animate) return;
     let animationFrameId: number;
     const scrollStep = () => {
       if (listRef.current && !isHovered) {
@@ -58,10 +68,19 @@ const GistList: React.FC<GistListProps> = ({ showLoader = true }) => {
         <Loader />
       ) : (
         <GistListWrapper
+          className={showList ? "fadeIn" : ""}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           ref={listRef}
         >
+          {gistsData?.gists?.length &&
+            gistsData?.gists?.map((gist: GistCard, index: number) => (
+              <GithubCard
+                key={index}
+                gist={gist}
+                user={gistsData?.user || {}}
+              />
+            ))}
           {gistsData?.gists?.length &&
             gistsData?.gists?.map((gist: GistCard, index: number) => (
               <GithubCard

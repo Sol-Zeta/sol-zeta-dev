@@ -1,12 +1,15 @@
-import { getColor } from "@/styles/utils";
+import { getBreakpoint, getColor } from "@/styles/utils";
 import Link from "next/link";
 import styled from "styled-components";
 
 export const UserHeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: 16px;
   padding-bottom: 0;
+  @media (min-width: ${getBreakpoint("md")}) {
+    padding: 32px;
+  }
 `;
 export const Header = styled.div`
   display: flex;
@@ -16,6 +19,16 @@ export const Header = styled.div`
 export const Description = styled.p`
   margin-top: 12px;
   font-style: italic;
+  max-height: 48px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @media (min-width: ${getBreakpoint("md")}) {
+    max-width: 500px;
+    max-height: inherit;
+    overflow: inherit;
+    text-overflow: inherit;
+  }
 `;
 export const AvatarContainer = styled.div`
   width: 40px;
@@ -40,10 +53,18 @@ export const HeaderLink = styled(Link)`
   align-items: center;
   gap: 8px;
   padding-left: 16px;
+  p {
+      display: none;
+    }
   &:hover {
     color: ${getColor("secondary").green};
     svg {
       fill: ${getColor("secondary").green};
+    }
+  }
+  @media (min-width: ${getBreakpoint("md")}) {
+    p {
+      display: block;
     }
   }
 `;

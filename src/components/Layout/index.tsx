@@ -5,6 +5,7 @@ import {
   LayoutWrapper,
   PageWrapper,
   MobileHeader,
+  MobileHeaderLinks,
 } from "./Layout.styled";
 import { ThemeProvider } from "styled-components";
 import theme from "@/styles/theme";
@@ -14,6 +15,8 @@ import Footer from "@/components/Footer";
 import { HeightProvider } from "@/context/HeightContext";
 import { useEffect } from "react";
 import { ModalProvider } from "@/context/ModalContext";
+import Icon, { Icons } from "../Icon";
+import { NAV_SECTIONS } from "@/utils/global";
 
 export const metadata: Metadata = {
   title: "Sol Zeta Dev",
@@ -59,7 +62,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <LayoutContainer>
             <LayoutWrapper>
               <NavBar />
-              <MobileHeader>soledad-pattoglio</MobileHeader>
+              <MobileHeader>
+                <h2>soledad-pattoglio</h2>
+                <div>
+                  {NAV_SECTIONS.filter((section) => section.top).map(
+                    (section) => (
+                      <MobileHeaderLinks href={section.href} target="_blank" key={section.title}>
+                        <Icon icon={section.icon} isButton={false} />
+                      </MobileHeaderLinks>
+                    )
+                  )}
+                </div>
+              </MobileHeader>
               <PageWrapper>{children}</PageWrapper>
               <Footer />
               <MobileNavBar />

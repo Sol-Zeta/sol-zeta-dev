@@ -49,7 +49,7 @@ const UserHeader: FC<UserHeaderProps> = ({
         <Section>
           <HeaderLink href={snippetUrl} target="_blank">
             <Icon icon={Icons.EXTERNAL_LINK} />
-            details
+            <p>details</p>
           </HeaderLink>
           {/* <HeaderLink href="">
             <Icon icon={Icons.STAR_FILL} />

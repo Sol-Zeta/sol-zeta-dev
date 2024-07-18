@@ -28,7 +28,7 @@ export const ArticleWrapper = styled.article`
   @media (min-width: ${getBreakpoint("md")}) {
     justify-content: center;
     padding: 48px 24px;
-    width: 50%;
+    max-width: 50%;
     &:first-of-type {
       padding: 120px 64px;
       width: 70%;
