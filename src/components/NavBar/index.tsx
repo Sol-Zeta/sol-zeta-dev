@@ -36,6 +36,12 @@ const NAV_SECTIONS = [
   //   title: "_projects",
   //   href: "/projects",
   // },
+  // {
+  //   title: "code",
+  //   desktop: false,
+  //   href: "/code-snippets",
+  //   icon: Icons.CODE,
+  // },
   {
     title: "_contact",
     role: NavItemRoles.LAST,

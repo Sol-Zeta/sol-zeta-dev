@@ -1,17 +1,38 @@
-"use client";
 import React, { useEffect, useRef, useState } from "react";
 import GithubCard, { GistCard } from "@/components/GithubCard";
-import { GistListWrapper, CardList } from "./GistList.styled";
-import { Gist } from "@/types/github";
+import { GistListWrapper } from "./GistList.styled";
+import { getGistsData, GistData } from "./utils";
+import Loader from "@/components/Loader";
 
 export interface GistListProps {
-  user: any;
-  gists: GistCard[];
+  showLoader?: boolean;
 }
 
-const GistList: React.FC<GistListProps> = ({ user, gists }) => {
+const GistList: React.FC<GistListProps> = ({ showLoader = true }) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [gistsData, setGistsData] = useState<GistData | undefined>(
+    undefined
+  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getData = async () => {
+    try {
+      setIsLoading(true);
+      const data = await getGistsData();
+      setGistsData(data);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -32,21 +53,26 @@ const GistList: React.FC<GistListProps> = ({ user, gists }) => {
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   return (
-    <GistListWrapper
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      ref={listRef}
-    >
-      <CardList>
-
-      {gists.map((gist: GistCard, index: number) => (
-        <GithubCard key={index} gist={gist} user={user} />
-      ))}
-      {gists.map((gist: GistCard, index: number) => (
-        <GithubCard key={index} gist={gist} user={user} />
-      ))}
-      </CardList>
-    </GistListWrapper>
+    <>
+      {isLoading && showLoader ? (
+        <Loader />
+      ) : (
+        <GistListWrapper
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          ref={listRef}
+        >
+          {gistsData?.gists?.length &&
+            gistsData?.gists?.map((gist: GistCard, index: number) => (
+              <GithubCard
+                key={index}
+                gist={gist}
+                user={gistsData?.user || {}}
+              />
+            ))}
+        </GistListWrapper>
+      )}
+    </>
   );
 };
 

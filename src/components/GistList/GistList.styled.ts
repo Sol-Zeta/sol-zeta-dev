@@ -7,14 +7,11 @@ export const GistListWrapper = styled.section`
   position: relative;
   z-index: 5;
   overflow: hidden;
+  width: calc(100% - 20px);
+  opacity: 0;
+
   &:hover {
+    width: 100%;
     overflow-y: scroll;
   }
-`;
-export const CardList = styled.section`
-  /* display: flex;
-  flex-direction: column;
-  position: absolute;
-  z-index: 10;
-  width: 100%; */
 `;

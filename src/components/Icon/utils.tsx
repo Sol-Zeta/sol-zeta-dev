@@ -11,6 +11,7 @@ import ChevronLeft from "@/assets/icons/chevron-left.svg";
 import ChevronRight from "@/assets/icons/chevron-right.svg";
 import ChevronUp from "@/assets/icons/chevron-up.svg";
 import Close from "@/assets/icons/close-fill.svg";
+import Code from "@/assets/icons/code-box-fill.svg";
 import Coffee from "@/assets/icons/coffee.svg";
 import Contact from "@/assets/icons/mail-fill.svg";
 import Css from "@/assets/icons/css3.svg";
@@ -86,6 +87,7 @@ export enum Icons {
   CHEVRON_RIGHT = "CHEVRON_RIGHT",
   CHEVRON_UP = "CHEVRON_UP",
   CLOSE = "CLOSE",
+  CODE = "CODE",
   COFFEE = "COFFEE",
   CONTACT = "CONTACT",
   CONTEXT_API = "CONTEXT_API",
@@ -151,6 +153,7 @@ export const IconChildren = {
   [Icons.CHEVRON_RIGHT]: <ChevronRight />,
   [Icons.CHEVRON_UP]: <ChevronUp />,
   [Icons.CLOSE]: <Close />,
+  [Icons.CODE]: <Code />,
   [Icons.COFFEE]: <Coffee />,
   [Icons.CONTACT]: <Contact />,
   [Icons.CSS]: <Css />,
