@@ -22,10 +22,8 @@ const getUser = async (
       return;
     }
     res.status(200).json(response.data);
-    // return response.data;
   } catch (error) {
     res.status(500).json({ error: "Error fetching data" });
-    return;
   }
 };
 

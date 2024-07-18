@@ -1,6 +1,5 @@
 import { Icons } from "@/components/Icon";
 import { colors } from "@/styles/theme";
-import { ValueOf } from "next/dist/shared/lib/constants";
 
 export enum TechTagsKeys {
   ANDROID_STUDIO = "ANDROID_STUDIO",
