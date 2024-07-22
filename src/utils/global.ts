@@ -6,12 +6,26 @@ export const env = (key: string) => process.env[key];
 
 export const getEnv = () => process.env.NODE_ENV;
 
-export const isProductionEnv = () => getEnv() === "production";
+export const isProductionEnv = () => getEnv() === Environment.PRODUCTION;
 
-export const getApiBaseUrl = () =>
-  isProductionEnv()
-    ? process.env.NEXT_PUBLIC_BASE_URL
-    : process.env.NEXT_PUBLIC_DEV_BASE_URL;
+export enum Environment {
+  PRODUCTION = 'production',
+  DEVELOPMENT = 'development',
+  LOCAL = 'local',
+}
+
+export const getApiBaseUrl = () => {
+  const environment = getEnv();
+  console.log('env =>', environment)
+  switch (environment) {
+    case Environment.PRODUCTION:
+      return process.env.NEXT_PUBLIC_BASE_URL
+    case Environment.DEVELOPMENT:
+      return process.env.NEXT_PUBLIC_DEV_BASE_URL
+      default:
+      return process.env.NEXT_PUBLIC_LOCAL_BASE_URL
+  }
+}
 
 export enum NavItemRoles {
   MAIN = "MAIN",
