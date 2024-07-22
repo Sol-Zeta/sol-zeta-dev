@@ -1,7 +1,7 @@
 import { GistCard } from "@/components/GithubCard";
 import { Owner } from "@/types/github";
 import { getApiBaseUrl } from "@/utils/global";
-import axios from "axios";
+import axiosInstance from "@/api/utils";
 
 export interface GistData {
   user?: Owner;
@@ -12,7 +12,7 @@ const apiBaseUrl = getApiBaseUrl();
 
 const getGist = async (url: string) => {
   try {
-    const { data: code } = await axios.get(
+    const { data: code } = await axiosInstance.get(
       `${apiBaseUrl}api/github/gistByUrl?url=${url}`
     );
     return code;
@@ -24,10 +24,8 @@ const getGist = async (url: string) => {
 
 export const getGistsData = async (): Promise<GistData | undefined> => {
   try {
-    const { data: user } = await axios.get(
-      `${apiBaseUrl}api/github/user`
-    );
-    const { data: raw_gists } = await axios.get(
+    const { data: user } = await axiosInstance.get(`${apiBaseUrl}api/github/user`);
+    const { data: raw_gists } = await axiosInstance.get(
       `${apiBaseUrl}api/github/gists`
     );
     const gists: GistCard[] = [];
