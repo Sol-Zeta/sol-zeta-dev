@@ -19,13 +19,11 @@ export const Header = styled.div`
 export const Description = styled.p`
   margin-top: 12px;
   font-style: italic;
-  max-height: 48px;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
   text-overflow: ellipsis;
   @media (min-width: ${getBreakpoint("md")}) {
     max-width: 500px;
-    max-height: inherit;
     overflow: inherit;
     text-overflow: inherit;
   }
