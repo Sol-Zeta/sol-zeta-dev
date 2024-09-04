@@ -5,10 +5,10 @@ import UserHeader from "./UserHeader";
 import { Gist } from "@/types/github";
 
 export interface GistCard {
-   creationDate: Date;
-   url: string;
-   description: string;
-   code: string;
+  creationDate: Date;
+  url: string;
+  description: string;
+  code: string;
 }
 
 export interface GithubCardProps {
@@ -16,16 +16,19 @@ export interface GithubCardProps {
   user: any;
 }
 
-const GithubCard: FC<GithubCardProps> = ({ gist, user }) => (
-  <GithubCardWrapper data-testid="GithubCard">
-    <UserHeader
-      user={user}
-      creationDate={gist.creationDate}
-      snippetUrl={gist.url}
-      description={gist.description}
-    />
-    <Snippet codeString={gist.code} />
-  </GithubCardWrapper>
-);
+const GithubCard: FC<GithubCardProps> = ({ gist, user }) => {
+  if(!gist.code) return;
+  return (
+    <GithubCardWrapper data-testid="GithubCard">
+      <UserHeader
+        user={user}
+        creationDate={gist.creationDate}
+        snippetUrl={gist.url}
+        description={gist.description}
+      />
+      <Snippet codeString={gist.code} />
+    </GithubCardWrapper>
+  );
+};
 
 export default GithubCard;

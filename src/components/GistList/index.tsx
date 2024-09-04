@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import GithubCard, { GistCard } from "@/components/GithubCard";
-import { GistListWrapper, Wrapper } from "./GistList.styled";
+import { GistListWrapper } from "./GistList.styled";
 import { getGistsData, GistData } from "./utils";
 import Loader from "@/components/Loader";
 
@@ -9,24 +9,28 @@ export interface GistListProps {
   showLoader?: boolean;
 }
 
-const GistList: React.FC<GistListProps> = ({ animate = true, showLoader = true }) => {
+const GistList: React.FC<GistListProps> = ({
+  animate = true,
+  showLoader = true,
+}) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [gistsData, setGistsData] = useState<GistData | undefined>(undefined);
+  const [{ user, gists }, setGistsData] = useState<GistData>({});
   const [isLoading, setIsLoading] = useState(true);
   const [showList, setShowList] = useState(false);
 
   const getData = async () => {
+    const ERROR_MESSAGE = "Error getting GitHub Gists";
     try {
       setIsLoading(true);
       const data = await getGistsData();
+      if (!data) {
+        throw new Error(ERROR_MESSAGE);
+      }
       setGistsData(data);
-      console.log({ data });
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
     } catch (error) {
-      console.error(error);
+      console.error(ERROR_MESSAGE, error);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -44,7 +48,7 @@ const GistList: React.FC<GistListProps> = ({ animate = true, showLoader = true }
   }, [isLoading]);
 
   useEffect(() => {
-    if(!animate) return;
+    if (!animate) return;
     let animationFrameId: number;
     const scrollStep = () => {
       if (listRef.current && !isHovered) {
@@ -73,21 +77,13 @@ const GistList: React.FC<GistListProps> = ({ animate = true, showLoader = true }
           onMouseLeave={handleMouseLeave}
           ref={listRef}
         >
-          {gistsData?.gists?.length &&
-            gistsData?.gists?.map((gist: GistCard, index: number) => (
-              <GithubCard
-                key={index}
-                gist={gist}
-                user={gistsData?.user || {}}
-              />
+          {gists?.length &&
+            gists?.map((gist: GistCard, index: number) => (
+              <GithubCard key={index} gist={gist} user={user || {}} />
             ))}
-          {gistsData?.gists?.length &&
-            gistsData?.gists?.map((gist: GistCard, index: number) => (
-              <GithubCard
-                key={index}
-                gist={gist}
-                user={gistsData?.user || {}}
-              />
+          {gists?.length &&
+            gists?.map((gist: GistCard, index: number) => (
+              <GithubCard key={index} gist={gist} user={user || {}} />
             ))}
         </GistListWrapper>
       )}
