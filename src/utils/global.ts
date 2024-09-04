@@ -16,7 +16,6 @@ export enum Environment {
 
 export const getApiBaseUrl = () => {
   const environment = getEnv();
-  console.log('env =>', environment)
   switch (environment) {
     case Environment.PRODUCTION:
       return process.env.NEXT_PUBLIC_BASE_URL

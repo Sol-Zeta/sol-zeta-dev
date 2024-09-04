@@ -57,12 +57,11 @@ const Contact: React.FC<Props> = ({
       )
       .then(
         () => {
-          console.log("SUCCESS!");
           setError(false)
           openModal(SUCCESS_MODAL.content, SUCCESS_MODAL.icon);
         },
         (error) => {
-          console.log("FAILED...", error);
+          console.error("FAILED...", error);
           setError(true)
           openModal(ERROR_MODAL.content, ERROR_MODAL.icon);
         }

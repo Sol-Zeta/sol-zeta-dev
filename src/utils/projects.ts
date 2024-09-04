@@ -32,7 +32,7 @@ export const CHECKBOX_FILTERS = [
       { id: "expressjs", title: "ExpressJS", icon: Icons.EXPRESS },
       { id: "strapi", title: "Strapi", icon: Icons.STRAPI },
       { id: "mongod", title: "MongoDB", icon: Icons.MONGO },
-      { id: "oostgresql", title: "PostgreSQL", icon: Icons.POSTGRESQL },
+      { id: "postgresql", title: "PostgreSQL", icon: Icons.POSTGRESQL },
       { id: "jira", title: "Jira", icon: Icons.JIRA },
       { id: "azure", title: "Azure", icon: Icons.AZURE },
       { id: "jenkins", title: "Jenkins", icon: Icons.JENKINS },
